@@ -7,6 +7,7 @@ class RegistrationScreen {
             console.log('keydown event\n\n' + 'key: ' + keyName);
         });
 
+        this.player = new Player(GAME_WIDTH / 2, GAME_HEIGHT / 2);
         //alert("RegistrationScreen yeye");
     }
 
@@ -15,6 +16,6 @@ class RegistrationScreen {
     }
 
     redraw() {
-
+        this.player.draw();
     }
 }

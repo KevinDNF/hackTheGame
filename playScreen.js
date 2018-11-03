@@ -33,7 +33,6 @@ class PlayScreen {
 
 function playButton(x, y, width, height, fillColor, lineColor) {
     context.fillStyle = lineColor;
-    context.lineWidth = 2;
     context.strokeStyle = lineColor;
 
     context.beginPath();

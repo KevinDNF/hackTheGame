@@ -2,7 +2,7 @@
 
 const GAME_WIDTH = 1920;
 const GAME_HEIGHT = 1080;
-
+const PLAYER_SIZE = 50;
 
 const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
@@ -16,9 +16,16 @@ function getMousePos(event) {
     };
  }
 
+function drawCircle(x, y, size){
+    context.fillStyle = 'black';
+    context.strokeStyle = 'black';
+    context.beginPath();
+    context.arc(x, y, size, 0, 2*Math.PI, false);
+    context.fill();
+    context.stroke();
+}
 
 function drawText(x, y, string) {
-    context.closePath();
     context.beginPath();
     context.fillText(string, x, y);
 }
