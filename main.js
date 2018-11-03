@@ -22,7 +22,7 @@ function init(){
     context.moveTo(0, 0);
     context.lineTo(GAME_WIDTH, GAME_HEIGHT);
     context.stroke();
-
+    
     screen = new PlayScreen();
     window.requestAnimationFrame(loop);
 }

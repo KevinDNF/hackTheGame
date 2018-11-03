@@ -1,6 +1,8 @@
+'use strict';
+
 class RegistrationScreen {
     constructor() {
-        
+
     }
 
     update() {
@@ -8,6 +10,6 @@ class RegistrationScreen {
     }
 
     redraw() {
-        
+
     }
 }
