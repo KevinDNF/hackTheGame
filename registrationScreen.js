@@ -43,6 +43,10 @@ class RegistrationScreen {
         const playerNextY = this.player.y + this.player.vy;
         let gridX = Math.floor(playerNextX / GRID_SIZE);
         let gridY = Math.floor(playerNextY / GRID_SIZE);
+        
+
+
+
         if (this.player.vx > 0) {
             gridX += 1;
         }
@@ -53,8 +57,8 @@ class RegistrationScreen {
 
        // console.log(tile);
         if (tile === "x") {
-            this.player.vx = 0;
-            this.player.vy = 0;
+            //this.player.x -= this.player.vx * 5;
+            this.player.y -= this.player.vy;
         }
 
        // console.log(MAIN_MAP[y][x]);

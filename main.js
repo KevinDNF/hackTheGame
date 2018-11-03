@@ -34,11 +34,16 @@ function init(){
     window.requestAnimationFrame(loop);
 }
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 function loop() {
     screen.update();
     context.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
     screen.redraw();
     window.requestAnimationFrame(loop);
+    sleep(10);
 }
 
 
