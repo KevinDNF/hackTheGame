@@ -8,7 +8,8 @@ const PLAYER_SPEED = 5;
 
 
 const PLAY_SCREEN = 0;
-const PRESENT_SCREEN = 1;
+const REGISTR_SCREEN = 1;
+const PRESENT_SCREEN = 2;
 
 
 let canvas = document.getElementById("canvas");
