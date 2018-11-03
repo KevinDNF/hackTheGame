@@ -25,11 +25,6 @@ function switchScreen(switchTo) {
 function init(){
     canvas.width = GAME_WIDTH;
     canvas.height = GAME_HEIGHT;
-
-    context.beginPath();
-    context.moveTo(0, 0);
-    context.lineTo(GAME_WIDTH, GAME_HEIGHT);
-    context.stroke();
     
     screen = new PlayScreen(switchScreen);
     window.requestAnimationFrame(loop);
@@ -37,6 +32,7 @@ function init(){
 
 function loop() {
     screen.update();
+    context.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
     screen.redraw();
     console.log("LOOP");
     window.requestAnimationFrame(loop);
