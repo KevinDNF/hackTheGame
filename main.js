@@ -16,6 +16,10 @@ function switchScreen(switchTo) {
         screen = to;
     }
 
+    if (switchTo === PLAY_SCREEN) {
+        destroyAndSwitch(new PlayScreen(switchScreen));
+    }
+
     if (switchTo === REGISTR_SCREEN) {
         destroyAndSwitch(new RegistrationScreen(switchScreen));
     }

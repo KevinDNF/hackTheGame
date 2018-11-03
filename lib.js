@@ -24,6 +24,24 @@ function getMousePos(event) {
     };
  }
 
+function drawPlayButton(x, y, width, height, fillColor, lineColor) {
+     context.fillStyle = lineColor;
+     context.strokeStyle = lineColor;
+
+     context.beginPath();
+     context.fillRect(x, y, width, height);
+   //  context.fill();
+     //context.stroke();
+
+     context.font = '40pt Kremlin Pro Web';
+     context.fillStyle = '#000000';
+     drawText(x + width / 2, y + height, "Start");
+}
+
+function isInside(pos, rect){
+     return pos.x > rect.x && pos.x < rect.x+rect.width && pos.y < rect.y+rect.height && pos.y > rect.y;
+}
+
 function drawCircle(x, y, size){
     context.fillStyle = 'black';
     context.strokeStyle = 'black';

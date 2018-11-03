@@ -4,7 +4,7 @@ class RegistrationScreen {
     constructor(switchScreen) {
         this.switchScreen = switchScreen;
         this.player = new Player(GAME_WIDTH / 2, GAME_HEIGHT / 2);
-      
+
         window.addEventListener('keydown', function(event) {
             if (event.key == "w") {
                 this.player.vy = -PLAYER_SPEED;
