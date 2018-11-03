@@ -3,7 +3,7 @@
 const GAME_WIDTH = 1920;
 const GAME_HEIGHT = 1080;
 
-const PLAYER_SIZE = 50;
+const PLAYER_SIZE = 40;
 const PLAYER_SPEED = 5;
 
 
@@ -43,4 +43,3 @@ function drawImage(name, x, y) {
     const image = document.getElementById(name);
     context.drawImage(image, x, y);
 }
-
