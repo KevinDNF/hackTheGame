@@ -13,9 +13,6 @@ class Map {
         const playerNextY = player.y + player.vy;
         let gridX = Math.floor(playerNextX / GRID_SIZE);
         let gridY = Math.floor(playerNextY / GRID_SIZE);
-        
-
-
 
         if (player.vx > 0) {
             gridX += 1;

@@ -54,23 +54,6 @@ class RegistrationScreen {
     redraw() {
         drawImage("map", 0, 0);
         this.player.draw();
-
-        
-        context.strokeStyle = "black";
-
-        //
-        for (let y = 0; y < 1080; y += 40) {
-            context.beginPath();
-            context.moveTo(0, y)
-            context.lineTo(1960, y);
-            context.stroke();
-        }
-
-        for (let x = 0; x < 1960; x += 40) {
-            context.beginPath();
-            context.moveTo(x, 0)
-            context.lineTo(x, 1960);
-            context.stroke();
-        }
+        drawGridOverlay();
     }
 }
