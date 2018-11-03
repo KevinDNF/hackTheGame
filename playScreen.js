@@ -12,7 +12,7 @@ class PlayScreen {
     constructor() {
         //Binding the click event on the canvas
         canvas.addEventListener('click', function(evt) {
-            const mousePos = getMousePos(canvas, evt);
+            const mousePos = getMousePos(evt);
 
             if (isInside(mousePos, playButtonRect)) {
                 alert('clicked inside rect');
