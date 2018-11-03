@@ -37,9 +37,11 @@ function init(){
     canvas.width = GAME_WIDTH;
     canvas.height = GAME_HEIGHT;
 
+    //Init the first screen
     screen = new RegistrationScreen(switchScreen);
     screen.init(switchScreen);
 
+    //Begin the main loop
     window.requestAnimationFrame(loop);
 }
 
