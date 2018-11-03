@@ -4,7 +4,7 @@ class PresentationScreen {
     }
 
     update() {
-
+        alert("you are now in the present screen")
     }
 
     redraw() {

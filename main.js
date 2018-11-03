@@ -7,6 +7,13 @@ function isInside(pos, rect){
 }
 
 let screen = null;
+function test(switchTo) {
+    if (switchTo === Screen.present) {
+        screen = new PresentationScreen(test);
+    }
+}
+
+
 function init(){
     canvas.width = GAME_WIDTH;
     canvas.height = GAME_HEIGHT;
