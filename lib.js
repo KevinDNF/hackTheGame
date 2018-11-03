@@ -8,11 +8,17 @@ const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
 
 //Function to get the mouse position
-function getMousePos(canvas, event) {
-    var rect = canvas.getBoundingClientRect();
+function getMousePos(event) {
+    const rect = canvas.getBoundingClientRect();
     return {
         x: event.clientX - rect.left,
         y: event.clientY - rect.top
     };
  }
 
+
+function drawText(x, y, string) {
+    context.closePath();
+    context.beginPath();
+    context.fillText(string, x, y);
+}
