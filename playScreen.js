@@ -38,8 +38,8 @@ function playButton(x, y, width, height, fillColor, lineColor) {
 
     context.beginPath();
     context.fillRect(x, y, width, height);
-    context.fill();
-    context.stroke();
+  //  context.fill();
+    //context.stroke();
 
     context.font = '40pt Kremlin Pro Web';
     context.fillStyle = '#000000';

@@ -1,7 +1,8 @@
 'use strict';
 
 class RegistrationScreen {
-    constructor() {
+    constructor(switchScreen) {
+        this.switchScreen = switchScreen;
 
     }
 

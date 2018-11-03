@@ -1,7 +1,8 @@
 'use strict';
 
 class PresentationScreen {
-    constructor() {
+    constructor(switchScreen) {
+        this.switchScreen = switchScreen;
         console.log("PRESENT SCREEN");
     }
 
