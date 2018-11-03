@@ -45,6 +45,8 @@ class PresentationScreen {
     }
 
     redraw() {
+        drawImage("player", 0, 50);
         this.player.draw();
+
     }
 }

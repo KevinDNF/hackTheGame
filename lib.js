@@ -3,7 +3,8 @@
 const GAME_WIDTH = 1920;
 const GAME_HEIGHT = 1080;
 
-const PLAYER_SIZE = 40;
+const GRID_SIZE = 40;
+const PLAYER_SIZE = GRID_SIZE;
 const PLAYER_SPEED = 5;
 
 
@@ -51,6 +52,12 @@ function drawCircle(x, y, size){
     context.stroke();
 }
 
+function drawRect(x, y, w, h) {
+    context.beginPath();
+    context.fillRect(x, y, w, h);
+
+}
+
 function drawText(x, y, string) {
     context.beginPath();
     context.fillText(string, x, y);
@@ -61,4 +68,23 @@ function drawText(x, y, string) {
 function drawImage(name, x, y) {
     const image = document.getElementById(name);
     context.drawImage(image, x, y);
+}
+
+function drawGridOverlay() {
+    context.strokeStyle = "black";
+
+    //
+    for (let y = 0; y < 1080; y += 40) {
+        context.beginPath();
+        context.moveTo(0, y)
+        context.lineTo(1960, y);
+        context.stroke();
+    }
+
+    for (let x = 0; x < 1960; x += 40) {
+        context.beginPath();
+        context.moveTo(x, 0)
+        context.lineTo(x, 1960);
+        context.stroke();
+    }
 }

@@ -1,6 +1,7 @@
 'use strict';
 
 class RegistrationScreen {
+
     constructor(){
         this.switchScreen = switchScreen;
         this.player = new Player(GAME_WIDTH / 2, GAME_HEIGHT / 2);
@@ -43,6 +44,14 @@ class RegistrationScreen {
                 this.player.vx = 0;
             }
         }.bind(this));
+/*
+        window.addEventListener("click", function(event) {
+            const mp = getMousePos(event);
+            this.player.target = {
+                x: mp.x,
+                y: mp.y
+            }
+        }.bind(this));*/
 
         //Binding the click event on the canvas
         canvas.addEventListener('click', function(evt) {
@@ -56,11 +65,18 @@ class RegistrationScreen {
     }
 
     update() {
+        this.map.collisions(this.player); 
         this.player.update();
+
+       
     }
 
     redraw() {
+        drawImage("map", 0, 0);
+
         drawPlayButton(this.playButtonRect.x, this.playButtonRect.y, this.playButtonRect.width, this.playButtonRect.height, '#00FFFF', '#DE3163');
+
         this.player.draw();
+        drawGridOverlay();
     }
 }
