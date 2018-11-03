@@ -10,10 +10,14 @@ function switchScreen(switchTo) {
         //reinit
         canvas = document.getElementById("canvas");
         context = canvas.getContext("2d");
-        
+
         //Clear
         context.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
         screen = to;
+    }
+
+    if (switchTo === REGISTR_SCREEN) {
+        destroyAndSwitch(new RegistrationScreen(switchScreen))
     }
 
     if (switchTo === PRESENT_SCREEN) {
@@ -34,7 +38,6 @@ function loop() {
     screen.update();
     context.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
     screen.redraw();
-    console.log("LOOP");
     window.requestAnimationFrame(loop);
 }
 

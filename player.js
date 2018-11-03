@@ -13,6 +13,7 @@ class Player {
     }
 
     draw() {
-        drawCircle(this.x, this.y, PLAYER_SIZE);
+        //drawCircle(this.x, this.y, PLAYER_SIZE / 2);
+        drawRect(this.x, this.y, PLAYER_SIZE, PLAYER_SIZE);
     }
 }
