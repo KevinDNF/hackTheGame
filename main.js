@@ -12,12 +12,7 @@ function init(){
     canvas.width = GAME_WIDTH;
     canvas.height = GAME_HEIGHT;
 
-    context.beginPath();
-    context.moveTo(0, 0);
-    context.lineTo(GAME_WIDTH, GAME_HEIGHT);
-    context.stroke();
-    
-    screen = new PlayScreen();
+    screen = new RegistrationScreen();
     window.requestAnimationFrame(loop);
 }
 

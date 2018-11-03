@@ -20,7 +20,6 @@ class PlayScreen {
                 alert('clicked outside rect');
             }
         }, false);
-
     }
 
     update() {
