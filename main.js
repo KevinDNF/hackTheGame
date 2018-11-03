@@ -40,6 +40,9 @@ function switchScreen(switchTo) {
     else if (switchTo === PRESENT_SCREEN) {
         destroyAndSwitch(new PresentationScreen());
     }
+    else if (switchTo === DEV_SCREEN) {
+        destroyAndSwitch(new DevelopementScreen());
+    }
 }
 
 /**

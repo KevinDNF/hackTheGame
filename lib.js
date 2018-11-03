@@ -11,6 +11,7 @@ const PLAYER_SPEED = 5;
 const PLAY_SCREEN = 0;
 const REGISTR_SCREEN = 1;
 const PRESENT_SCREEN = 2;
+const DEV_SCREEN = 3
 
 
 let canvas = document.getElementById("canvas");

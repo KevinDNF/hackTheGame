@@ -1,9 +1,21 @@
 'use strict';
 
-class PresentationScreen {
+/**
+ * Screen for the registration stage of the game
+ */
+class RegistrationScreen {
+
     constructor(){
         this.switchScreen = switchScreen;
         this.player = new Player(GAME_WIDTH / 2, GAME_HEIGHT / 2);
+        this.map = new Map(MAIN_MAP);
+
+        this.playButtonRect = {
+           x: GAME_WIDTH / 2,
+           y: GAME_HEIGHT / 2,
+           width: 200,
+           height: 100
+        };
     }
 
     init(switchScreen) {
@@ -36,17 +48,37 @@ class PresentationScreen {
                 this.player.vx = 0;
             }
         }.bind(this));
+/*
+        window.addEventListener("click", function(event) {
+            const mp = getMousePos(event);
+            this.player.target = {
+                x: mp.x,
+                y: mp.y
+            }
+        }.bind(this));*/
 
-        //alert("RegistrationScreen yeye");
+        //Binding the click event on the canvas
+        canvas.addEventListener('click', function(evt) {
+            console.log("button clicked");
+            const mousePos = getMousePos(evt);
+
+            if (isInside(mousePos, this.playButtonRect)) {
+                switchScreen(PRESENT_SCREEN);
+            }
+        }.bind(this));
     }
 
     update() {
+        this.map.collisions(this.player); 
         this.player.update();
     }
 
     redraw() {
-        drawImage("player", 0, 50);
-        this.player.draw();
+        drawImage("map", 0, 0);
 
+        drawPlayButton(this.playButtonRect.x, this.playButtonRect.y, this.playButtonRect.width, this.playButtonRect.height, '#00FFFF', '#DE3163');
+
+        this.player.draw();
+        //drawGridOverlay();
     }
 }
