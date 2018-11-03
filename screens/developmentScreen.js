@@ -1,9 +1,14 @@
 'use strict';
 
-class PresentationScreen {
+/**
+ * Screen for the Developement stage of the game
+ * This is the main event
+ */
+class DevelopementScreen {
     constructor(){
         this.switchScreen = switchScreen;
         this.player = new Player(GAME_WIDTH / 2, GAME_HEIGHT / 2);
+        this.map = new Map(MAIN_MAP);
     }
 
     init(switchScreen) {
@@ -36,17 +41,16 @@ class PresentationScreen {
                 this.player.vx = 0;
             }
         }.bind(this));
-
-        //alert("RegistrationScreen yeye");
     }
 
     update() {
+        this.map.collisions(this.player); 
         this.player.update();
     }
 
     redraw() {
-        drawImage("player", 0, 50);
+        drawImage("map", 0, 0);
         this.player.draw();
-
+        //drawGridOverlay();
     }
 }

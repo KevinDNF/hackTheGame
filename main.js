@@ -1,7 +1,19 @@
 'use strict';
-
+/**
+ * A screen is a polymorphic object
+ * It refers to the current state of the game
+ * Each screen has an update and redraw function
+ */
 let screen = null;
+
+/**
+ * Allows the screens to switch between eachother
+ * Passes in a number (these are in lib.js)
+ * This will then reset the screen object to the new screen
+ * @param {function} switchTo This function
+ */
 function switchScreen(switchTo) {
+    //Removes event listens and then resets the screen
     function destroyAndSwitch(to) {
         //Remove event listeners by clearing the nodes and that
         const newCanvas = canvas.cloneNode(true);
@@ -13,6 +25,8 @@ function switchScreen(switchTo) {
 
         //Clear
         context.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+
+        //And reset
         to.init(switchScreen);
         screen = to;
     }
@@ -20,13 +34,14 @@ function switchScreen(switchTo) {
     if (switchTo === PLAY_SCREEN) {
         destroyAndSwitch(new PlayScreen());
     }
-
-    if (switchTo === REGISTR_SCREEN) {
+    else if (switchTo === REGISTR_SCREEN) {
         destroyAndSwitch(new RegistrationScreen());
     }
-
-    if (switchTo === PRESENT_SCREEN) {
+    else if (switchTo === PRESENT_SCREEN) {
         destroyAndSwitch(new PresentationScreen());
+    }
+    else if (switchTo === DEV_SCREEN) {
+        destroyAndSwitch(new DevelopementScreen());
     }
 }
 
@@ -38,7 +53,7 @@ function init(){
     canvas.height = GAME_HEIGHT;
 
     //Init the first screen
-    screen = new RegistrationScreen(switchScreen);
+    screen = new PlayScreen(switchScreen);
     screen.init(switchScreen);
 
     //Begin the main loop

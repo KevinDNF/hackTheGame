@@ -1,5 +1,8 @@
 'use strict';
 
+/**
+ * Screen which has a big button that says "PLAY GAME"
+ */
 class PlayScreen {
     constructor(){
         this.playButtonRect = {
@@ -11,14 +14,13 @@ class PlayScreen {
     }
 
     init(switchScreen) {
-
         //Binding the click event on the canvas
         canvas.addEventListener('click', function(evt) {
             console.log("button clicked play screen");
             const mousePos = getMousePos(evt);
 
             if (isInside(mousePos, this.playButtonRect)) {
-                switchScreen(REGISTR_SCREEN);
+                switchScreen(DEV_SCREEN);
             }
         }.bind(this));
     }
