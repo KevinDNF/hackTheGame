@@ -1,17 +1,15 @@
 'use strict';
 
-
-//Function to check whether a point is inside a rectangle
-function isInside(pos, rect){
-   return pos.x > rect.x && pos.x < rect.x+rect.width && pos.y < rect.y+rect.height && pos.y > rect.y
-}
-
 let screen = null;
 function switchScreen(switchTo) {
     function destroyAndSwitch(to) {
         //Remove event listeners by clearing the nodes and that
         const newCanvas = canvas.cloneNode(true);
         canvas.parentNode.replaceChild(newCanvas, canvas);
+
+        //reinit
+        canvas = document.getElementById("canvas");
+        context = canvas.getContext("2d");
         
         //Clear
         context.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
@@ -40,6 +38,7 @@ function init(){
 function loop() {
     screen.update();
     screen.redraw();
+    console.log("LOOP");
     window.requestAnimationFrame(loop);
 }
 

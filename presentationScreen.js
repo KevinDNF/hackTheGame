@@ -11,6 +11,6 @@ class PresentationScreen {
     }
 
     redraw() {
-
+        drawImage("player", 0, 50);
     }
 }

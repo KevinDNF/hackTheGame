@@ -24,3 +24,8 @@ function drawText(x, y, string) {
     context.beginPath();
     context.fillText(string, x, y);
 }
+
+function drawImage(name, x, y) {
+    const image = document.getElementById(name);
+    context.drawImage(image, x, y);
+}
