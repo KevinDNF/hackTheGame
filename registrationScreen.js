@@ -35,6 +35,14 @@ class RegistrationScreen {
                 this.player.vx = 0;
             }
         }.bind(this));
+/*
+        window.addEventListener("click", function(event) {
+            const mp = getMousePos(event);
+            this.player.target = {
+                x: mp.x,
+                y: mp.y
+            }
+        }.bind(this));*/
 
         //alert("RegistrationScreen yeye");
     }
@@ -43,12 +51,7 @@ class RegistrationScreen {
         this.map.collisions(this.player); 
         this.player.update();
 
-       // const x = Math.floor(this.player.x / 40);
-     //   const y = Math.floor(this.player.y / 40);
-
-       // console.log(`Player Grid X: ${x}, Player Grid Y: ${y}`)
-
-      //  console.log(MAIN_MAP[y][x]);
+       
     }
 
     redraw() {
