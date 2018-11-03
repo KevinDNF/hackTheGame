@@ -2,6 +2,7 @@
 
 class RegistrationScreen {
     constructor(switchScreen) {
+        this.map = new Map(MAIN_MAP);
         this.switchScreen = switchScreen;
         this.player = new Player(GAME_WIDTH / 2, GAME_HEIGHT / 2);
       
@@ -39,35 +40,7 @@ class RegistrationScreen {
     }
 
     update() {
-        const playerNextX = this.player.x + this.player.vx;
-        const playerNextY = this.player.y + this.player.vy;
-        let gridX = Math.floor(playerNextX / GRID_SIZE);
-        let gridY = Math.floor(playerNextY / GRID_SIZE);
-        
-
-
-
-        if (this.player.vx > 0) {
-            gridX += 1;
-        }
-        if (this.player.vy > 0) {
-            gridY += 1;
-        }
-        const tile = MAIN_MAP[gridY][gridX];
-
-       // console.log(tile);
-        if (tile === "x") {
-            //this.player.x -= this.player.vx * 5;
-            this.player.y -= this.player.vy;
-        }
-
-       // console.log(MAIN_MAP[y][x]);
-        //if ()
-
-
-
-
-
+        this.map.collisions(this.player); 
         this.player.update();
 
        // const x = Math.floor(this.player.x / 40);
