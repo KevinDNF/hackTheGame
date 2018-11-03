@@ -8,6 +8,32 @@ const playButtonRect = {
    height:100
 };
 
+class PlayScreen {
+    constructor() {
+        //Binding the click event on the canvas
+        canvas.addEventListener('click', function(evt) {
+            const mousePos = getMousePos(canvas, evt);
+        
+            if (isInside(mousePos, playButtonRect)) {
+                alert('clicked inside rect');
+            }else{
+                alert('clicked outside rect');
+            }
+        }, false);
+        
+    }
+
+    update() {
+
+    }
+
+    redraw() {
+        playButton(playButtonRect.x, playButtonRect.y, playButtonRect.width, playButtonRect.height, '#00FFFF', '#DE3163');
+    }
+
+
+}
+
 function playButton(x, y, width, height, fillColor, lineColor) {
     context.beginPath();
     context.rect(x, y, width, height);
@@ -21,20 +47,5 @@ function playButton(x, y, width, height, fillColor, lineColor) {
     context.font = '40pt Kremlin Pro Web';
     context.fillStyle = '#000000';
     context.fillText('Start', 345, 415);
-  }
-
-
-function drawPlayScreen(){
-    playButton(playButtonRect.x, playButtonRect.y, playButtonRect.width, playButtonRect.height, '#00FFFF', '#DE3163');
 }
 
-//Binding the click event on the canvas
-canvas.addEventListener('click', function(evt) {
- var mousePos = getMousePos(canvas, evt);
-
- if (isInside(mousePos, playButtonRect)) {
-     alert('clicked inside rect');
- }else{
-     alert('clicked outside rect');
- }
-}, false);

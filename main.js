@@ -22,8 +22,17 @@ function init(){
     context.lineTo(GAME_WIDTH, GAME_HEIGHT);
     context.stroke();
 
-    drawPlayScreen();
-
+    let currentScreen = new PlayScreen();
+    loop(currentScreen);
 }
+
+function loop(screen) {
+
+    screen.update();
+    screen.redraw();
+
+    window.requestAnimationFrame( loop );
+}
+
 
 init();
