@@ -30,21 +30,36 @@ function switchScreen(switchTo) {
     }
 }
 
-
+/**
+ * Main entry point of the program
+ */
 function init(){
     canvas.width = GAME_WIDTH;
     canvas.height = GAME_HEIGHT;
 
+    //Init the first screen
     screen = new RegistrationScreen(switchScreen);
     screen.init(switchScreen);
 
+    //Begin the main loop
     window.requestAnimationFrame(loop);
 }
 
+/**
+ * Sleeps the thread so it doesn't run too fast
+ * @param ms Milliseconds to sleep for
+ */
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+/**
+ * MAIN GAME LOOP
+ * Loops throughout the game
+ * INPUT -> CLEAR -> DRAW -> REPEAT
+ * A screen refers to the current stage of the game
+ *  EG: Main menu, presentation, or dev stage
+ */
 function loop() {
     screen.update();
     context.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);

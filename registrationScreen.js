@@ -5,6 +5,7 @@ class RegistrationScreen {
     constructor(){
         this.switchScreen = switchScreen;
         this.player = new Player(GAME_WIDTH / 2, GAME_HEIGHT / 2);
+        this.map = new Map(MAIN_MAP);
 
         this.playButtonRect = {
            x: GAME_WIDTH / 2,
@@ -77,6 +78,6 @@ class RegistrationScreen {
         drawPlayButton(this.playButtonRect.x, this.playButtonRect.y, this.playButtonRect.width, this.playButtonRect.height, '#00FFFF', '#DE3163');
 
         this.player.draw();
-        drawGridOverlay();
+        //drawGridOverlay();
     }
 }
