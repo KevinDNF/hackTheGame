@@ -13,19 +13,20 @@ function switchScreen(switchTo) {
 
         //Clear
         context.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+        to.init(switchScreen);
         screen = to;
     }
 
     if (switchTo === PLAY_SCREEN) {
-        destroyAndSwitch(new PlayScreen(switchScreen));
+        destroyAndSwitch(new PlayScreen());
     }
 
     if (switchTo === REGISTR_SCREEN) {
-        destroyAndSwitch(new RegistrationScreen(switchScreen));
+        destroyAndSwitch(new RegistrationScreen());
     }
 
     if (switchTo === PRESENT_SCREEN) {
-        destroyAndSwitch(new PresentationScreen(switchScreen));
+        destroyAndSwitch(new PresentationScreen());
     }
 }
 
@@ -34,7 +35,8 @@ function init(){
     canvas.width = GAME_WIDTH;
     canvas.height = GAME_HEIGHT;
 
-    screen = new PlayScreen(switchScreen);
+    screen = new PlayScreen();
+    screen.init(switchScreen);
     window.requestAnimationFrame(loop);
 }
 
@@ -42,7 +44,6 @@ function loop() {
     screen.update();
     context.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
     screen.redraw();
-    console.log("LOOP");
     window.requestAnimationFrame(loop);
 }
 
