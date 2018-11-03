@@ -17,11 +17,11 @@ function switchScreen(switchTo) {
     }
 
     if (switchTo === REGISTR_SCREEN) {
-        destroyAndSwitch(new RegistrationScreen(switchScreen))
+        destroyAndSwitch(new RegistrationScreen(switchScreen));
     }
 
     if (switchTo === PRESENT_SCREEN) {
-        destroyAndSwitch(new PresentationScreen(switchScreen))
+        destroyAndSwitch(new PresentationScreen(switchScreen));
     }
 }
 
