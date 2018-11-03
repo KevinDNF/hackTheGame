@@ -1,13 +1,17 @@
 'use strict';
 
-
-const GAME_HEIGHT = window.innerHeight;
-const GAME_WIDTH = GAME_HEIGHT * (16.0 / 9.0); // adjust ratio
-
-const canvas = document.getElementById("canvas");
-const context = canvas.getContext("2d");
-
-
+//Function to get the mouse position
+function getMousePos(canvas, event) {
+   var rect = canvas.getBoundingClientRect();
+   return {
+       x: event.clientX - rect.left,
+       y: event.clientY - rect.top
+   };
+}
+//Function to check whether a point is inside a rectangle
+function isInside(pos, rect){
+   return pos.x > rect.x && pos.x < rect.x+rect.width && pos.y < rect.y+rect.height && pos.y > rect.y
+}
 
 function init(){
     canvas.width = GAME_WIDTH;
@@ -17,6 +21,9 @@ function init(){
     context.moveTo(0, 0);
     context.lineTo(GAME_WIDTH, GAME_HEIGHT);
     context.stroke();
+
+    drawPlayScreen();
+
 }
 
 init();
