@@ -40,6 +40,11 @@ class RegistrationScreen {
 
     update() {
         this.player.update();
+
+        const x = Math.floor(this.player.x / 40);
+        const y = Math.floor(this.player.y / 40);
+
+        console.log(`Player Grid X: ${x}, Player Grid Y: ${y}`)
     }
 
     redraw() {

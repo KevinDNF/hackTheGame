@@ -26,7 +26,7 @@ function init(){
     canvas.width = GAME_WIDTH;
     canvas.height = GAME_HEIGHT;
     
-    screen = new PlayScreen(switchScreen);
+    screen = new RegistrationScreen(switchScreen);
     window.requestAnimationFrame(loop);
 }
 
