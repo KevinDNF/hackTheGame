@@ -1,3 +1,8 @@
+/**
+ * g = grass
+ * p = path
+ * x = wall
+ */
 const MAIN_MAP = [
     "ggggggggggggggggggggggppppppppgggggggggggggggggg",
     "ggggggggggggggggggggggppppppppgggggggggggggggggg",
