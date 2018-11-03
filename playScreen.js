@@ -13,14 +13,14 @@ class PlayScreen {
         //Binding the click event on the canvas
         canvas.addEventListener('click', function(evt) {
             const mousePos = getMousePos(canvas, evt);
-        
+
             if (isInside(mousePos, playButtonRect)) {
                 alert('clicked inside rect');
             }else{
                 alert('clicked outside rect');
             }
         }, false);
-        
+
     }
 
     update() {
@@ -46,4 +46,3 @@ function playButton(x, y, width, height, fillColor, lineColor) {
     context.fillStyle = '#000000';
     drawText(x + width / 2, y + height, "Start");
 }
-

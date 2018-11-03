@@ -7,6 +7,7 @@ function isInside(pos, rect){
 }
 
 let screen = null;
+
 function init(){
     canvas.width = GAME_WIDTH;
     canvas.height = GAME_HEIGHT;
@@ -15,15 +16,9 @@ function init(){
     context.moveTo(0, 0);
     context.lineTo(GAME_WIDTH, GAME_HEIGHT);
     context.stroke();
-
-<<<<<<< HEAD
-    let currentScreen = new PlayScreen();
-    loop(currentScreen);
-    window.requestAnimationFrame( loop );
-=======
+    
     screen = new PlayScreen();
     window.requestAnimationFrame(loop);
->>>>>>> 592491c1d1c51547c451a8259d39dda74fc0a43a
 }
 
 function loop() {
