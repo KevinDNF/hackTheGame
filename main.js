@@ -24,6 +24,7 @@ function init(){
 
     let currentScreen = new PlayScreen();
     loop(currentScreen);
+    window.requestAnimationFrame( loop );
 }
 
 function loop(screen) {

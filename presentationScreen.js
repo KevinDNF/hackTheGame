@@ -1,6 +1,8 @@
+'use strict';
+
 class PresentationScreen {
     constructor() {
-        
+
     }
 
     update() {
@@ -8,6 +10,6 @@ class PresentationScreen {
     }
 
     redraw() {
-        
+
     }
 }
