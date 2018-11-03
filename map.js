@@ -1,4 +1,8 @@
 
+/**
+ * Data structure for the map itself
+ * Handles getting a tile as well as collision detection
+ */
 class Map {
     constructor(layout) {
         this.layout = layout;
