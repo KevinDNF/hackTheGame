@@ -3,6 +3,7 @@
 const GAME_WIDTH = 1920;
 const GAME_HEIGHT = 1080;
 const PLAYER_SIZE = 50;
+const PLAYER_SPEED = 5;
 
 const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
