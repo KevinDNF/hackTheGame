@@ -53,7 +53,7 @@ function init(){
     canvas.height = GAME_HEIGHT;
 
     //Init the first screen
-    screen = new RegistrationScreen(switchScreen);
+    screen = new PlayScreen(switchScreen);
     screen.init(switchScreen);
 
     //Begin the main loop

@@ -20,7 +20,7 @@ class PlayScreen {
             const mousePos = getMousePos(evt);
 
             if (isInside(mousePos, this.playButtonRect)) {
-                switchScreen(REGISTR_SCREEN);
+                switchScreen(DEV_SCREEN);
             }
         }.bind(this));
     }

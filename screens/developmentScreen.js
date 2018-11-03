@@ -9,13 +9,6 @@ class DevelopementScreen {
         this.switchScreen = switchScreen;
         this.player = new Player(GAME_WIDTH / 2, GAME_HEIGHT / 2);
         this.map = new Map(MAIN_MAP);
-
-        this.playButtonRect = {
-           x: GAME_WIDTH / 2,
-           y: GAME_HEIGHT / 2,
-           width: 200,
-           height: 100
-        };
     }
 
     init(switchScreen) {
@@ -48,16 +41,6 @@ class DevelopementScreen {
                 this.player.vx = 0;
             }
         }.bind(this));
-
-        //Binding the click event on the canvas
-        canvas.addEventListener('click', function(evt) {
-            console.log("button clicked");
-            const mousePos = getMousePos(evt);
-
-            if (isInside(mousePos, this.playButtonRect)) {
-                switchScreen(PRESENT_SCREEN);
-            }
-        }.bind(this));
     }
 
     update() {
@@ -67,9 +50,6 @@ class DevelopementScreen {
 
     redraw() {
         drawImage("map", 0, 0);
-
-        drawPlayButton(this.playButtonRect.x, this.playButtonRect.y, this.playButtonRect.width, this.playButtonRect.height, '#00FFFF', '#DE3163');
-
         this.player.draw();
         //drawGridOverlay();
     }
