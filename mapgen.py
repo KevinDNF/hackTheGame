@@ -51,5 +51,8 @@ with open("out.txt", "w") as file:
                 output[len(output) - 1] += "x"
         output[len(output) - 1] += '",\n'
 
+    for y in range((1080 // TILE_SIZE) - 1):
+        
+
     for line in output:
         file.write(line)
