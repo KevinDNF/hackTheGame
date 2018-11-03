@@ -2,11 +2,17 @@
 
 const GAME_WIDTH = 1920;
 const GAME_HEIGHT = 1080;
+
 const PLAYER_SIZE = 50;
 const PLAYER_SPEED = 5;
 
-const canvas = document.getElementById("canvas");
-const context = canvas.getContext("2d");
+
+const PLAY_SCREEN = 0;
+const PRESENT_SCREEN = 1;
+
+
+let canvas = document.getElementById("canvas");
+let context = canvas.getContext("2d");
 
 //Function to get the mouse position
 function getMousePos(event) {
@@ -30,3 +36,11 @@ function drawText(x, y, string) {
     context.beginPath();
     context.fillText(string, x, y);
 }
+
+
+
+function drawImage(name, x, y) {
+    const image = document.getElementById(name);
+    context.drawImage(image, x, y);
+}
+

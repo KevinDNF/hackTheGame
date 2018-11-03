@@ -8,16 +8,19 @@ const playButtonRect = {
    height: 100
 };
 
+function isInside(pos, rect){
+    return pos.x > rect.x && pos.x < rect.x+rect.width && pos.y < rect.y+rect.height && pos.y > rect.y
+ }
+
 class PlayScreen {
-    constructor() {
+    constructor(switchScreen) {
+        
         //Binding the click event on the canvas
         canvas.addEventListener('click', function(evt) {
             const mousePos = getMousePos(evt);
 
             if (isInside(mousePos, playButtonRect)) {
-                alert('clicked inside rect');
-            }else{
-                alert('clicked outside rect');
+                switchScreen(PRESENT_SCREEN);
             }
         }, false);
     }
@@ -37,8 +40,8 @@ function playButton(x, y, width, height, fillColor, lineColor) {
 
     context.beginPath();
     context.fillRect(x, y, width, height);
-    context.fill();
-    context.stroke();
+  //  context.fill();
+    //context.stroke();
 
     context.font = '40pt Kremlin Pro Web';
     context.fillStyle = '#000000';

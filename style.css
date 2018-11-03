@@ -3,6 +3,10 @@ body {
     background-color: #DE3163;
 }
 
+img {
+    display: none
+}
+
 canvas {
     background-color: aqua;
     padding-left: 0;
