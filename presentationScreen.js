@@ -2,11 +2,11 @@
 
 class PresentationScreen {
     constructor() {
-
+        console.log("PRESENT SCREEN");
     }
 
     update() {
-        alert("you are now in the present screen")
+        
     }
 
     redraw() {
