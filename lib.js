@@ -24,22 +24,23 @@ function getMousePos(event) {
     };
  }
 
-function drawPlayButton(x, y, width, height, fillColor, lineColor) {
-     context.fillStyle = lineColor;
-     context.strokeStyle = lineColor;
+function drawPlayButton(x, y, width, height, fillColor) {
+     context.fillStyle = fillColor;
+     context.strokeStyle = fillColor;
+     context.lineWidth = 65;
+     context.lineJoin = "round";
 
-     context.beginPath();
-     context.fillRect(x, y, width, height);
-   //  context.fill();
-     //context.stroke();
+     context.rect(x, y, width, height);
+     context.fill();
+     context.stroke();
 
      context.font = '40pt Kremlin Pro Web';
      context.fillStyle = '#000000';
-     drawText(x + width / 2, y + height, "Start");
+     drawText(x + width / 2, y + height / 2, "PLAY");
 }
 
 function isInside(pos, rect){
-     return pos.x > rect.x && pos.x < rect.x+rect.width && pos.y < rect.y+rect.height && pos.y > rect.y;
+     return pos.x > rect.x-35 && pos.x < rect.x+rect.width+35 && pos.y < rect.y+rect.height+35 && pos.y > rect.y-35;
 }
 
 function drawCircle(x, y, size){
@@ -52,7 +53,8 @@ function drawCircle(x, y, size){
 }
 
 function drawText(x, y, string) {
-    context.beginPath();
+    context.textBaseline = 'middle';
+    context.textAlign = "center";
     context.fillText(string, x, y);
 }
 
