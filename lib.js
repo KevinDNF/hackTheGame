@@ -1,22 +1,31 @@
 'use strict';
 
+/**
+ * ============== CONSTANTS ==============
+ */
 const GAME_WIDTH = 1920;
 const GAME_HEIGHT = 1080;
 
+//Tile and player constants
 const GRID_SIZE = 40;
 const PLAYER_SIZE = GRID_SIZE;
 const PLAYER_SPEED = 5;
 
-
+//Screen IDs
 const PLAY_SCREEN = 0;
 const REGISTR_SCREEN = 1;
 const PRESENT_SCREEN = 2;
 const DEV_SCREEN = 3
 
-
+/**
+ * ============== CANVAS ==============
+ */
 let canvas = document.getElementById("canvas");
 let context = canvas.getContext("2d");
 
+/**
+ * ============== HELPER FUNCTIONS ============== 
+ */
 //Function to get the mouse position
 function getMousePos(event) {
     const rect = canvas.getBoundingClientRect();
@@ -40,6 +49,7 @@ function drawPlayButton(x, y, width, height, fillColor, lineColor) {
      drawText(x + width / 2, y + height, "Start");
 }
 
+//Retursn true if pos is inside of a rect
 function isInside(pos, rect){
      return pos.x > rect.x && pos.x < rect.x+rect.width && pos.y < rect.y+rect.height && pos.y > rect.y;
 }
