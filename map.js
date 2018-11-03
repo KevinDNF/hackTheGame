@@ -8,10 +8,20 @@ class Map {
         this.layout = layout;
     }
 
+    /**
+     * Gets a tile at X, Y
+     * @param {Number} x The X coordinate of a tile to get
+     * @param {Number} y The Y coordinate of a tile to get
+     */
     getTile(x, y) {
         return this.layout[y][x]
     }
 
+    /**
+     * Handles collision detection and response between the tile map 
+     * and the player
+     * @param {Player} player The player
+     */
     collisions(player) {
         const playerNextX = player.x + player.vx;
         const playerNextY = player.y + player.vy;
