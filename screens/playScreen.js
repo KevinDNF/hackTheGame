@@ -14,13 +14,36 @@ class PlayScreen {
     }
 
     init(switchScreen) {
+
+        canvas.addEventListener('mousedown', function(evt) {
+            console.log("button mouse down play screen");
+            const mousePos = getMousePos(evt);
+
+            if (isInside(mousePos, this.playButton)) {
+                this.playButton.fillStyle = '#aE1133';
+            }
+
+
+        }.bind(this));
+
+        canvas.addEventListener('mouseup', function(evt) {
+            console.log("button mouse down play screen");
+            const mousePos = getMousePos(evt);
+
+            if (isInside(mousePos, this.playButton)) {
+                this.playButton.fillStyle = '#DE3163';
+            }
+
+
+        }.bind(this));
+
         //Binding the click event on the canvas
         canvas.addEventListener('click', function(evt) {
             console.log("button clicked play screen");
             const mousePos = getMousePos(evt);
 
             if (isInside(mousePos, this.playButtonRect)) {
-                switchScreen(DEV_SCREEN);
+                switchScreen(REGISTR_SCREEN);
             }
         }.bind(this));
     }
