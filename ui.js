@@ -22,6 +22,5 @@ class UI{
         let y = this.y + 40*i
         this.text = drawText(this.x, y, string,"30px monospace","rgba(255,255,255,1)");
       }
-      context.clearRect(this.rect);
     }
 }
