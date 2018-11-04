@@ -144,3 +144,13 @@ function drawGridOverlay() {
         context.stroke();
     }
 }
+
+function youLost(){
+    if (player.satisfaction <= 0) return true;
+    return false;
+}
+
+function youWon(){
+    if (player.food + player.coffee >= 200) return true;
+    return false;
+}
