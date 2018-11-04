@@ -52,7 +52,7 @@ class Player {
         this.y += this.vy;
         if (this.won) {
 
-                this.p.push(new Particle(this.x, this.y));
+            this.p.push(new Particle(this.x, this.y));
         }
     }
 
@@ -60,22 +60,22 @@ class Player {
      * Render the player
      */
     draw() {
-       switch (this.holding){
-         case "nothing":
-          this.animation = this.player_nothing;
-          break;
-         case "coffee":
-           this.animation = this.player_coffee;
-           break;
-         case "food":
-           this.animation = this.player_food;
-           break;
-       }
+        switch (this.holding) {
+            case "nothing":
+                this.animation = this.player_nothing;
+                break;
+            case "coffee":
+                this.animation = this.player_coffee;
+                break;
+            case "food":
+                this.animation = this.player_food;
+                break;
+        }
 
-       this.animation.draw(
-           this.x, this.y,
-           this.vx !== 0 || this.vy !== 0,
-           this.direction);
+        this.animation.draw(
+            this.x, this.y,
+            this.vx !== 0 || this.vy !== 0,
+            this.direction);
 
         this.speech.draw();
 

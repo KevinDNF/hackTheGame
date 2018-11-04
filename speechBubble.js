@@ -30,7 +30,7 @@ class SpeechBubble {
                 this.state = SPEECH_STATE_NONE;
             }
             this.frameCount += 1;
-            
+
             const x = this.target.x;
             const y = this.target.y;
 
@@ -40,10 +40,10 @@ class SpeechBubble {
             context.strokeStyle = "black";
             context.beginPath();
             context.moveTo(x, y);
-            context.lineTo(x - 10,  y - 10);
-            context.lineTo(left,    y - 10);
-            context.lineTo(left,    y - 80);
-            context.lineTo(x - 10,  y - 80);
+            context.lineTo(x - 10, y - 10);
+            context.lineTo(left, y - 10);
+            context.lineTo(left, y - 80);
+            context.lineTo(x - 10, y - 80);
             context.lineTo(x, y);
             context.stroke();
             context.fill();

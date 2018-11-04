@@ -10,10 +10,22 @@ class Particle {
         const size = (100 - (this.vx + this.vy) / 2) / 5;
         //const rotation  = (Math.random() * 90) * Math.PI / 180;
         this.vertices = []
-        this.vertices.push({x: 0,       y: 0});
-        this.vertices.push({x: size,    y: 0});
-        this.vertices.push({x: size,    y: size});
-        this.vertices.push({x: 0,       y: size});
+        this.vertices.push({
+            x: 0,
+            y: 0
+        });
+        this.vertices.push({
+            x: size,
+            y: 0
+        });
+        this.vertices.push({
+            x: size,
+            y: size
+        });
+        this.vertices.push({
+            x: 0,
+            y: size
+        });
     }
 
     draw() {

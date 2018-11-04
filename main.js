@@ -33,14 +33,11 @@ function switchScreen(switchTo) {
 
     if (switchTo === MAIN_MENU_SCREEN) {
         destroyAndSwitch(new MainMenuScreen());
-    }
-    else if (switchTo === REGISTR_SCREEN) {
+    } else if (switchTo === REGISTR_SCREEN) {
         destroyAndSwitch(new RegistrationScreen());
-    }
-    else if (switchTo === PRESENT_SCREEN) {
+    } else if (switchTo === PRESENT_SCREEN) {
         destroyAndSwitch(new PresentationScreen());
-    }
-    else if (switchTo === DEV_SCREEN) {
+    } else if (switchTo === DEV_SCREEN) {
         destroyAndSwitch(new DevelopementScreen());
     }
 }
@@ -48,7 +45,7 @@ function switchScreen(switchTo) {
 /**
  * Main entry point of the program
  */
-function init(){
+function init() {
     canvas.width = GAME_WIDTH;
     canvas.height = GAME_HEIGHT;
 
