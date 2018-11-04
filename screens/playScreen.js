@@ -17,7 +17,6 @@ class PlayScreen {
     init(switchScreen) {
 
         canvas.addEventListener('mousedown', function(evt) {
-            console.log("button mouse down play screen");
             const mousePos = getMousePos(evt);
 
             if (isInside(mousePos, this.playButton)) {
@@ -28,7 +27,6 @@ class PlayScreen {
         }.bind(this));
 
         canvas.addEventListener('mouseup', function(evt) {
-            console.log("button mouse down play screen");
             const mousePos = getMousePos(evt);
 
             if (isInside(mousePos, this.playButton)) {
@@ -40,7 +38,6 @@ class PlayScreen {
 
         //Binding the click event on the canvas
         canvas.addEventListener('click', function(evt) {
-            console.log("button clicked play screen");
             const mousePos = getMousePos(evt);
 
             if (isInside(mousePos, this.playButton)) {
