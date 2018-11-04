@@ -7,8 +7,8 @@ const GAME_WIDTH = 1920;
 const GAME_HEIGHT = 1080;
 
 //Tile and player constants
-const GRID_SIZE = 40;
-const PLAYER_SIZE = GRID_SIZE;
+const GRID_SIZE = 20;
+const PLAYER_SIZE = GRID_SIZE *2;
 const PLAYER_SPEED = 5;
 
 //Screen IDs
@@ -24,7 +24,7 @@ let canvas = document.getElementById("canvas");
 let context = canvas.getContext("2d");
 
 /**
- * ============== HELPER FUNCTIONS ============== 
+ * ============== HELPER FUNCTIONS ==============
  */
 //Function to get the mouse position
 function getMousePos(event) {
@@ -35,18 +35,21 @@ function getMousePos(event) {
     };
  }
 
-function drawPlayButton(x, y, width, height, fillColor, lineColor) {
-     context.fillStyle = lineColor;
-     context.strokeStyle = lineColor;
+function drawPlayButton(x, y, width, height, fillColor) {
+     context.fillStyle = fillColor;
+     context.strokeStyle = fillColor;
+     context.lineWidth = 65;
+     context.lineJoin = "round"
 
-     context.beginPath();
-     context.fillRect(x, y, width, height);
-   //  context.fill();
-     //context.stroke();
+     context.rect(x, y, width, height);
+     context.fill();
+     context.stroke();
 
      context.font = '40pt Kremlin Pro Web';
      context.fillStyle = '#000000';
-     drawText(x + width / 2, y + height, "Start");
+     context.textAlign = 'center';
+     context.textBaseline = 'middle';
+     drawText(x + width / 2, y + height / 2, "Start");
 }
 
 //Retursn true if pos is inside of a rect
@@ -85,14 +88,14 @@ function drawGridOverlay() {
     context.strokeStyle = "black";
 
     //
-    for (let y = 0; y < 1080; y += 40) {
+    for (let y = 0; y < 1080; y += 20) {
         context.beginPath();
         context.moveTo(0, y)
         context.lineTo(1960, y);
         context.stroke();
     }
 
-    for (let x = 0; x < 1960; x += 40) {
+    for (let x = 0; x < 1960; x += 20) {
         context.beginPath();
         context.moveTo(x, 0)
         context.lineTo(x, 1960);

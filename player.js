@@ -11,6 +11,9 @@ class Player {
         this.vy = 0.0;
         this.size = PLAYER_SIZE;
         this.target = null;
+
+        //coffee or food
+        this.holding = "nothing";
     }
 
     /**
