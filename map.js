@@ -17,10 +17,11 @@ class Map {
         return this.layout[y][x]
     }
 
-    specialTiles(nextMove,player) {
+    specialTiles(nextMove, player) {
       switch(nextMove){
         case "c":
           //c = coffee stand
+          player.speech.speak("I am at a coffee stand.", 20);
           console.log("COFFE STAND")
           if(player.holding === "coffee"){
             player.holding="nothing"

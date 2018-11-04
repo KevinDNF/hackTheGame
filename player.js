@@ -18,6 +18,8 @@ class Player {
         this.animation = new Animation();
         this.animation.addFrame("player1", 10);
         this.animation.addFrame("player2", 10);
+
+        this.speech = new SpeechBubble(this);
     }
 
     /**
@@ -37,5 +39,7 @@ class Player {
        this.animation.draw(
            this.x, this.y, 
            this.vx !== 0 || this.vy !== 0);
+
+        this.speech.draw();
     }
 }
