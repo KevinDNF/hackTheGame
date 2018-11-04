@@ -43,7 +43,8 @@ class Player {
        // drawRect(this.x, this.y, PLAYER_SIZE, PLAYER_SIZE);
        this.animation.draw(
            this.x, this.y, 
-           this.vx !== 0 || this.vy !== 0);
+           this.vx !== 0 || this.vy !== 0,
+           this.direction);
 
         this.speech.draw();
 
