@@ -17,17 +17,12 @@ class DevelopementScreen {
         this.y_pos = null;
         this.rand = 0;
 
-        
-
-
-        
-
         this.ui_items =  [
           ["Coffee",this.player.coffee,100],
           ["Food",this.player.food,100],
           ["Satisfaction",this.player.satisfaction,100]
         ]
-        this.ui = new UI(this.ui_items)
+        this.ui = new UI(this.ui_items);
     }
 
     init(switchScreen) {
@@ -83,15 +78,15 @@ class DevelopementScreen {
         }
 
         for(const i of this.all_mobs) {
-            i.update()
+            i.update();
         }
         if(this.timer >= 1000 && this.all_mobs.length < 10) {
-            this.rand = Math.round(Math.random())
+            this.rand = Math.round(Math.random());
             this.x_pos = this.mob_spawn_positions[this.rand][0];
             this.y_pos = this.mob_spawn_positions[this.rand][1];    
 
-            this.mob = new mob(this.x_pos,this.y_pos)
-            current_registering.push(this.mob)
+            this.mob = new mob(this.x_pos,this.y_pos);
+            current_registering.push(this.mob);
             this.all_mobs.push(this.mob);
             this.timer = 0;
         }
@@ -99,7 +94,7 @@ class DevelopementScreen {
             this.all_mobs.shift()
         }
 
-        this.timer +=1
+        this.timer +=1;
     }
 
     redraw() {

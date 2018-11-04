@@ -15,7 +15,7 @@ class Map {
    * @param {Number} y The Y coordinate of a tile to get
    */
   getTile(x, y) {
-      return this.layout[y][x]
+      return this.layout[y][x];
   }
 
   specialTiles(nextMove, player) {
@@ -27,8 +27,8 @@ class Map {
             player.speech.speak("Stand full. I am going to have to eat it.");
           } else{
             player.speech.speak("I put down the coffee at the stand.");
-            player.holding="nothing"
-            player.coffee += 10
+            player.holding="nothing";
+            player.coffee += 10;
           }
         }
         break;
@@ -39,8 +39,8 @@ class Map {
             player.speech.speak("Stand Full, I'm going to have to drink it.");
           }else{
             player.speech.speak("I put down the food at the stand");
-            player.holding = "nothing"
-            player.food += 10
+            player.holding = "nothing";
+            player.food += 10;
           }
         }
         break;

@@ -71,14 +71,14 @@ class mob {
             let move_to = this.route[0];
             this.x = move_to.y*20;
             this.y = move_to.x*20;
-            this.route.shift()
+            this.route.shift();
 
             this.counter = 0;
         } else {
             this.task == null;
         }
         if(this.counter == this.move_every) {
-            this.counter = 0
+            this.counter = 0;
         }
         this.counter +=1;
         
@@ -90,14 +90,14 @@ class mob {
     draw() {
         // drawCircle(this.x, this.y, PLAYER_SIZE / 2);
         // drawRect(this.x, this.y, PLAYER_SIZE, PLAYER_SIZE);
-        drawPlayerImage("mob",this.x,this.y)
+        drawPlayerImage("mob",this.x,this.y);
     }
 
     work_out_path(end_x_y) {
-        let end_y = end_x_y.split(",")[0]
-        let end_x = end_x_y.split(",")[1]
+        let end_y = end_x_y.split(",")[0];
+        let end_x = end_x_y.split(",")[1];
         
-        console.log(this.x,this.y)
+        console.log(this.x,this.y);
 
         let start = ai_map.grid[this.y/20][this.x/20];
         let end = ai_map.grid[end_x][end_y];
