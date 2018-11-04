@@ -42,21 +42,15 @@ class Player {
         this.x += this.vx;
         this.y += this.vy;
         if (this.won) {
-            if (this.vx != 0 || this.vy != 0) {
+            
                 this.p.push(new Particle(this.x, this.y));
-                this.p.push(new Particle(this.x, this.y));
-            }
         }
-        // console.log(this.x/20, this.y/20)
     }
 
     /**
      * Render the player
      */
     draw() {
-        //drawCircle(this.x, this.y, PLAYER_SIZE / 2);
-
-       // drawRect(this.x, this.y, PLAYER_SIZE, PLAYER_SIZE);
        this.animation.draw(
            this.x, this.y, 
            this.vx !== 0 || this.vy !== 0,
@@ -64,15 +58,13 @@ class Player {
 
         this.speech.draw();
 
-       // if (this.won) {
+        if (this.won) {
             context.fillStyle = "white";
-            context.font = "200px monospace"
-            drawText(200, GAME_HEIGHT / 2 - 50, "YOU HAVE WON");
-            context.fillStyle = "red";
+            drawText(200, GAME_HEIGHT / 2 - 50, "YOU HAVE WON", "200px monospace", "white");
+            context.fillStyle = "hotpink";
             for (const p of this.p) {
                 p.draw();
             }
-      //  }
-
+        }
     }
 }
