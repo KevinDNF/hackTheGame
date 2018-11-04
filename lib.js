@@ -22,6 +22,7 @@ const DEV_SCREEN = 3
  */
 let queue_count = 0;
 let current_registering = new Array();
+let player = null;
 
 /**
  * ============== CANVAS ==============

@@ -22,7 +22,6 @@ class Animation {
         drawImage(frame.name, x, y)
         if (changeFrames) {
             this.frameCounter += 1;
-            console.log(frame.name);
             if (this.frameCounter >= frame.delay) {
                 this.frameCounter = 0;
                 this.currentFrame += 1;

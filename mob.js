@@ -15,23 +15,22 @@ class mob {
         this.queue_positions = ["16,30","18,30","20,30","20,30","22,30"];
         this.route = null;
         this.move_every = Math.floor(Math.random() * (20 - 10 + 1)) + 10;
+        this.idle_amount = Math.floor(Math.random() * (200 - 10 + 1)) + 10;
+        this.idle_counter = 0;
         this.counter = 0;
         this.is_signed_up = false;
         this.idle_area_x = [8,15];
         this.idle_area_y = [15,21];
-        this.timer;
-    }
+        this.timer = 0;
+    }   
 
     /**
      * Update player based on current velocity
      */
     update() {
-        // console.log("This AI's current task is ", this.task)
-        // console.log("I am currently ", this.is_signed_up)
         if(this.task == null) {
             if(this.is_signed_up) {
                 this.task = "idle";
-                console.log("I am signed up")
                 this.pos = [Math.floor(Math.random() * (35 - 10 + 1)) + 10, + Math.floor(Math.random() * (21 - 15 + 1)) + 15].toString();
                 this.route = this.work_out_path(this.pos);
 
@@ -39,11 +38,14 @@ class mob {
                 this.task = "queue";
                 this.route = this.work_out_path(this.queue_positions[queue_count])
                 queue_count +=1;
-                console.log(current_registering)
             }   
         } else if (this.task == "queue") {
             // Get next avalible position in the queue and navigate to there
             this.timer+=1;
+            if(this.timer == 10000) {
+                player.satisfaction -=1;
+                this.timer = 0;
+            }
             
         } else if (this.task == "drink") {
             //Navigate to drinks and remove 1 from global avalible_drinks
@@ -53,14 +55,18 @@ class mob {
 
         } else if(this.task == "idle") {
             // Program
+            if(this.idle_counter == this.idle_amount) {
+                this.pos = [Math.floor(Math.random() * (35 - 10 + 1)) + 10, + Math.floor(Math.random() * (21 - 15 + 1)) + 15].toString();
+                this.route = this.work_out_path(this.pos);
+                this.idle_counter = 0;
+            }
+            this.idle_counter +=1;
+
             
         } 
 
-        console.log(this.route.length,this.counter == this.move_every)
-
         if(this.route.length != 0 && this.counter == this.move_every) {
             //walk to target
-            console.log("moving")
             let move_to = this.route[0];
             this.x = move_to.y*20;
             this.y = move_to.x*20;
@@ -75,7 +81,6 @@ class mob {
         }
         this.counter +=1;
         
-        // console.log(current_registering)
     }
 
     /**
@@ -98,7 +103,6 @@ class mob {
         return result;
     }
     register_mob() {
-        // console.log("Signed up")
         this.is_signed_up = true;
         this.task = null;
     }
