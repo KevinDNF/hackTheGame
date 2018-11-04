@@ -21,10 +21,7 @@ class Map {
       switch(nextMove){
         case "c":
           //c = coffee stand
-<<<<<<< HEAD
-=======
           player.speech.speak("I am at a coffee stand.");
->>>>>>> 606c71d0564401ef2cd3f7a79fe2a2c4f9a30355
           if(player.holding === "coffee"){
             if(player.coffee >= 100){
               console.log("FULL EAT IT, at the bar")
@@ -36,10 +33,7 @@ class Map {
           break;
         case "f":
           //f = food stand
-<<<<<<< HEAD
-=======
           player.speech.speak("I am at a food stand.");
->>>>>>> 606c71d0564401ef2cd3f7a79fe2a2c4f9a30355
           if (player.holding === "food"){
             if(player.food >= 100){
               console.log("FULL, EAT IT")
@@ -58,12 +52,8 @@ class Map {
           }
           break;
         case "h":
-<<<<<<< HEAD
           //h = harbord coffee
-=======
-          //h = hardbord coffee
           player.speech.speak("I already am holding something!")
->>>>>>> 606c71d0564401ef2cd3f7a79fe2a2c4f9a30355
           if(player.holding === "nothing"){
             player.holding = "coffee"
             player.speech.speak("I have collected 5 coffees");
