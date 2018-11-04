@@ -100,7 +100,7 @@ class DevelopementScreen {
     }
 
     redraw() {
-        let ui_items = [
+        this.ui_items = [
           ["Coffee",this.player.coffee,100],
           ["Food",this.player.food,100],
           ["Satisfaction",this.player.satisfaction,100]
