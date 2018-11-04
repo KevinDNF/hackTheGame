@@ -28,7 +28,7 @@ class Map {
         let gridX = Math.floor(playerNextX / GRID_SIZE);
         let gridY = Math.floor(playerNextY / GRID_SIZE);
 
-        
+
 
         if (player.vx > 0) {
             gridX += 1;
@@ -40,10 +40,10 @@ class Map {
         const tileY = this.getTile(Math.floor(player.x / GRID_SIZE), gridY);
         const tileX = this.getTile(gridX, Math.floor(player.y / GRID_SIZE));
 
-        if (player.vx != 0 && tileX === "x"){
+        if (player.vx != 0 && tileX === "w"){
             player.x -= player.vx;
         }
-        if (player.vy != 0 && tileY === "x"){
+        if (player.vy != 0 && tileY === "w"){
             player.y -= player.vy;
         }
     }
