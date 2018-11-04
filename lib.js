@@ -58,8 +58,6 @@ function isInside(pos, rect){
 }
 
 function drawCircle(x, y, size){
-    context.fillStyle = 'black';
-    context.strokeStyle = 'black';
     context.beginPath();
     context.arc(x, y, size, 0, 2*Math.PI, false);
     context.fill();
