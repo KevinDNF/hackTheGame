@@ -9,6 +9,7 @@ class DevelopementScreen {
         this.switchScreen = switchScreen;
         this.player = new Player(GAME_WIDTH / 2, GAME_HEIGHT / 2);
         this.map = new Map(MAIN_MAP);
+        this.mob = new mob(0,23);
     }
 
     init(switchScreen) {
@@ -46,11 +47,13 @@ class DevelopementScreen {
     update() {
         this.map.collisions(this.player); 
         this.player.update();
+        this.mob.update();
     }
 
     redraw() {
         drawImage("map", 0, 0);
         this.player.draw();
-        //drawGridOverlay();
+        this.mob.draw();
+        drawGridOverlay();
     }
 }
