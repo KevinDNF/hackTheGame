@@ -1,11 +1,20 @@
 'use strict';
 
+
 class Particle {
     constructor(x, y) {
         this.x = x + (Math.random() - 0.5) * 100;
         this.y = y + (Math.random() - 0.5) * 100;
         this.vx = (Math.random() - 0.5) * 100;
         this.vy = (Math.random() - 0.5) * 64;
+
+        const size = (100 - (this.vx + this.vy) / 2) / 4;
+
+        this.vertices = []
+        this.vertices.push({x: 0,       y: 0});
+        this.vertices.push({x: size,    y: 0});
+        this.vertices.push({x: size,    y: size});
+        this.vertices.push({x: 0,       y: size});
     }
 
     update() {
@@ -13,6 +22,19 @@ class Particle {
         this.y += this.vy;
 
         this.vy += 1;
+    }
+
+    draw() {
+        //drawCircle(this.x, this.y, 10);
+
+        context.beginPath();
+        context.moveTo(this.vertices[0].x + this.x, this.vertices[0].y + this.y);
+        for (let i = 1; i < this.vertices.length; i++) {
+            context.lineTo(this.vertices[i].x + this.x, this.vertices[i].y + this.y)
+        }
+        context.lineTo(this.vertices[0].x + this.x, this.vertices[0].y + this.y);
+        context.fill();
+        context.stroke();
     }
 }
 
@@ -82,11 +104,11 @@ class MainMenuScreen {
     }
 
     redraw() {
+        context.fillStyle = "#FF1493";
+        context.strokeStyle = "black";
         for (const particle of this.particles) {
             particle.update();
-            context.fillStyle = "#FF1493";
-            context.strokeStyle = "black";
-            drawCircle(particle.x, particle.y, 10);
+            particle.draw();
         }
 
         context.shadowBlur = this.playButton.blur;
