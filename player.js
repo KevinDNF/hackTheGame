@@ -38,6 +38,7 @@ class Player {
     update() {
         this.x += this.vx;
         this.y += this.vy;
+        // console.log(this.x/20, this.y/20)
     }
 
     /**

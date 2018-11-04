@@ -24,6 +24,13 @@ const S_KEY = 83;
 const D_KEY = 68;
 
 /**
+ * ============== Globals =============
+ */
+let queue_count = 0;
+let current_registering = new Array();
+let player = null;
+
+/**
  * ============== CANVAS ==============
  */
 let canvas = document.getElementById("canvas");

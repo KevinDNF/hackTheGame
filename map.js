@@ -4,9 +4,10 @@
  * Handles getting a tile as well as collision detection
  */
 class Map {
-  constructor(layout) {
-      this.layout = layout;
-  }
+    constructor(layout) {
+        this.layout = layout;
+        this.register = null;
+    }
 
   /**
    * Gets a tile at X, Y
@@ -29,17 +30,34 @@ class Map {
             player.holding="nothing"
             player.coffee += 10
           }
-        }
-        break;
-      case "f":
-        //f = food stand
-        player.speech.speak("I am at a food stand.");
-        if (player.holding === "food"){
-          if(player.food >= 100){
-            console.log("FULL, EAT IT")
+          break;
+        case "f":
+          //f = food stand
+          player.speech.speak("I am at a food stand.");
+          if (player.holding === "food"){
+            if(player.food >= 100){
+              console.log("FULL, EAT IT")
+            }else{
+              player.holding = "nothing"
+              player.food += 10
+            }
+          }
+          break;
+        case "r":
+          //r = registration
+
+          if (player.holding !== "nothing"){
+            player.speech.speak("My hands are busy");
           }else{
-            player.holding = "nothing"
-            player.food += 10
+
+            if(current_registering.length != 0) {
+              this.register = current_registering[0];
+              this.register.register_mob()
+              current_registering.shift()
+            } else {
+
+            }
+            player.speech.speak("I am now registering people")
           }
         }
         break;

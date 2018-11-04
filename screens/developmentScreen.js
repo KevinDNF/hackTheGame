@@ -9,6 +9,13 @@ class DevelopementScreen {
         this.switchScreen = switchScreen;
         this.player = new Player(GAME_WIDTH / 2, GAME_HEIGHT / 2);
         this.map = new Map(MAIN_MAP);
+
+        player = this.player;
+
+        this.mob = new mob(GAME_WIDTH/2, GAME_HEIGHT/2)
+        this.mob2 = new mob(GAME_WIDTH/2, GAME_HEIGHT/2)
+        current_registering.push(this.mob)
+        current_registering.push(this.mob2)
         this.ui_items =  [
           ["Coffee",this.player.coffee,100],
           ["Food",this.player.food,100],
@@ -61,12 +68,16 @@ class DevelopementScreen {
     update() {
         this.map.collisions(this.player); 
         this.player.update();
+        this.mob.update();
+        this.mob2.update();
     }
 
     redraw() {
         drawImage("map", 0, 0);
         this.player.draw();
-        this.ui.draw(this.ui_items);
+        this.mob2.draw();
+        this.mob.draw();
         drawGridOverlay();
+        this.ui.draw(this.ui_items);
     }
 }
