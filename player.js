@@ -14,6 +14,7 @@ class Player {
 
         //coffee or food
         this.holding = "nothing";
+        this.direction = 0;
     }
 
     /**
@@ -29,6 +30,7 @@ class Player {
      */
     draw() {
         //drawCircle(this.x, this.y, PLAYER_SIZE / 2);
-        drawRect(this.x, this.y, PLAYER_SIZE, PLAYER_SIZE);
+        //drawRect(this.x, this.y, PLAYER_SIZE, PLAYER_SIZE);
+        drawImage("player",this.x,this.y,this.direction)
     }
 }

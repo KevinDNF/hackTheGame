@@ -76,9 +76,15 @@ function drawText(x, y, string) {
 
 
 
-function drawImage(name, x, y) {
+function drawImage(name, x, y, rotation=0) {
     const image = document.getElementById(name);
-    context.drawImage(image, x, y);
+    context.save()
+    const midpointX = image.width/2
+    const midpointY = image.height/2
+    context.translate(x + midpointX, y + midpointY)
+    context.rotate(rotation*Math.PI/180)
+    context.drawImage(image, -midpointX, -midpointY);
+    context.restore()
 }
 
 function drawGridOverlay() {
