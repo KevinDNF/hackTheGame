@@ -24,7 +24,7 @@ let canvas = document.getElementById("canvas");
 let context = canvas.getContext("2d");
 
 /**
- * ============== HELPER FUNCTIONS ============== 
+ * ============== HELPER FUNCTIONS ==============
  */
 //Function to get the mouse position
 function getMousePos(event) {
@@ -35,18 +35,21 @@ function getMousePos(event) {
     };
  }
 
-function drawPlayButton(x, y, width, height, fillColor, lineColor) {
-     context.fillStyle = lineColor;
-     context.strokeStyle = lineColor;
+function drawPlayButton(x, y, width, height, fillColor) {
+     context.fillStyle = fillColor;
+     context.strokeStyle = fillColor;
+     context.lineWidth = 65;
+     context.lineJoin = "round"
 
-     context.beginPath();
-     context.fillRect(x, y, width, height);
-   //  context.fill();
-     //context.stroke();
+     context.rect(x, y, width, height);
+     context.fill();
+     context.stroke();
 
      context.font = '40pt Kremlin Pro Web';
      context.fillStyle = '#000000';
-     drawText(x + width / 2, y + height, "Start");
+     context.textAlign = 'center';
+     context.textBaseline = 'middle';
+     drawText(x + width / 2, y + height / 2, "Start");
 }
 
 //Retursn true if pos is inside of a rect
