@@ -51,7 +51,7 @@ class Player {
         this.x += this.vx;
         this.y += this.vy;
         if (this.won) {
-            
+
                 this.p.push(new Particle(this.x, this.y));
         }
     }
@@ -73,7 +73,7 @@ class Player {
        }
 
        this.animation.draw(
-           this.x, this.y, 
+           this.x, this.y,
            this.vx !== 0 || this.vy !== 0,
            this.direction);
 

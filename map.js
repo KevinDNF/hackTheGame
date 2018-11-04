@@ -121,7 +121,7 @@ class Map {
         const tile = this.getTile(gridX, gridY);
         const tileYRIGHT = this.getTile(Math.floor(player.x / GRID_SIZE) + 1, gridY);
         const tileY = this.getTile(Math.floor(player.x / GRID_SIZE), gridY);
-        const tileYLEFT = this.getTile(Math.floor(player.x / GRID_SIZE), gridY);
+        const tileYLEFT = this.getTile(Math.floor(player.x / GRID_SIZE) - 1, gridY);
 
         const tileXUP = this.getTile(gridX, Math.floor(player.y / GRID_SIZE) - 1);
         const tileX = this.getTile(gridX, Math.floor(player.y / GRID_SIZE));
