@@ -17,6 +17,12 @@ const REGISTR_SCREEN = 1;
 const PRESENT_SCREEN = 2;
 const DEV_SCREEN = 3
 
+//Key codes
+const W_KEY = 87;
+const A_KEY = 65;
+const S_KEY = 83;
+const D_KEY = 68;
+
 /**
  * ============== CANVAS ==============
  */
@@ -77,9 +83,34 @@ function drawText(x, y, string) {
 
 
 
-function drawImage(name, x, y) {
+function drawImage(name, x, y, rotation=0) {
     const image = document.getElementById(name);
-    context.drawImage(image, x, y);
+    context.save();
+    const midpointX = image.width/2;
+    const midpointY = image.height/2;
+    const radRotation = rotation*Math.PI/180;
+    context.translate(x, y);
+    context.rotate(radRotation);
+    context.drawImage(image, -midpointX, -midpointY);
+    context.restore();
+
+    //context.fillStyle = "black";
+    //context.fillRect(x,y,image.width,image.height);
+}
+
+function drawPlayer(name, x, y, rotation=0) {
+    const image = document.getElementById(name);
+    context.save();
+    const midpointX = image.width/2;
+    const midpointY = image.height/2;
+    const radRotation = rotation*Math.PI/180;
+    context.translate(x, y);
+    context.rotate(radRotation);
+    context.drawImage(image, -midpointX, -midpointY);
+    context.restore();
+
+    //context.fillStyle = "black";
+    //context.fillRect(x,y,image.width,image.height);
 }
 
 function drawGridOverlay() {
