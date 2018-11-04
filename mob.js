@@ -5,14 +5,14 @@ class mob {
      * @param {Number} y Y position for the player to start at
      */
     constructor(x, y) {
-        this.x = x;
-        this.y = y;
+        this.x = x*20;
+        this.y = y*20;
         this.vx = 0.0;
         this.vy = 0.0;
         this.size = PLAYER_SIZE;
         this.target = null;
         this.task = null; // Following possibilites are: queue, drink, food, idle
-        this.queue_positions = ["18,31","20,31","22,31","24,31","26,31"];
+        this.queue_positions = ["18,31","20,31","22,31","24,31","26,31","28,31","30,31","18,33","20,33","22,33","24,33"];
         this.route = null;
         this.move_every = Math.floor(Math.random() * (20 - 10 + 1)) + 10;
         this.idle_amount = Math.floor(Math.random() * (200 - 10 + 1)) + 10;
@@ -96,6 +96,8 @@ class mob {
     work_out_path(end_x_y) {
         let end_y = end_x_y.split(",")[0]
         let end_x = end_x_y.split(",")[1]
+        
+        console.log(this.x,this.y)
 
         let start = ai_map.grid[this.y/20][this.x/20];
         let end = ai_map.grid[end_x][end_y];

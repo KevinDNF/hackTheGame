@@ -9,13 +9,19 @@ class DevelopementScreen {
         this.switchScreen = switchScreen;
         this.player = new Player(GAME_WIDTH / 2, GAME_HEIGHT / 2);
         this.map = new Map(MAIN_MAP);
-
+        this.timer = 1000;
+        this.all_mobs = [];
         player = this.player;
+        this.mob_spawn_positions = [[6,45],[49,6]]
+        this.x_pos = null;
+        this.y_pos = null;
+        this.rand = 0;
 
-        this.mob = new mob(GAME_WIDTH/2, GAME_HEIGHT/2)
-        this.mob2 = new mob(GAME_WIDTH/2, GAME_HEIGHT/2)
-        current_registering.push(this.mob)
-        current_registering.push(this.mob2)
+        
+
+
+        
+
         this.ui_items =  [
           ["Coffee",this.player.coffee,100],
           ["Food",this.player.food,100],
@@ -66,10 +72,31 @@ class DevelopementScreen {
     }
 
     update() {
-        this.map.collisions(this.player); 
+        if (youLost()){
+            alert("You lost");
+            switchScreen(MAIN_MENU_SCREEN);
+        } else if (youWon()){
+            alert("You won");
+            switchScreen(MAIN_MENU_SCREEN);
+        }
+        this.map.collisions(this.player);
         this.player.update();
-        this.mob.update();
-        this.mob2.update();
+
+        for(const i of this.all_mobs) {
+            i.update()
+        }
+
+        if(this.timer >= 1000 && this.all_mobs.length < 25) {
+            this.rand = Math.round(Math.random())
+            this.x_pos = this.mob_spawn_positions[this.rand][0];
+            this.y_pos = this.mob_spawn_positions[this.rand][1];    
+
+            this.mob = new mob(this.x_pos,this.y_pos)
+            current_registering.push(this.mob)
+            this.all_mobs.push(this.mob);
+            this.timer = 0;
+        }
+        this.timer +=1
     }
 
     redraw() {
@@ -80,9 +107,10 @@ class DevelopementScreen {
         ]
         drawImage("map", 0, 0);
         this.player.draw();
-        this.mob2.draw();
-        this.mob.draw();
         drawGridOverlay();
-        this.ui.draw(ui_items);
+        for(const i of this.all_mobs) {
+            i.draw()
+        }
+        this.ui.draw(this.ui_items);
     }
 }
