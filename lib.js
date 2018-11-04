@@ -12,7 +12,7 @@ const PLAYER_SIZE = GRID_SIZE *2;
 const PLAYER_SPEED = 5;
 
 //Screen IDs
-const PLAY_SCREEN = 0;
+const MAIN_MENU_SCREEN = 0;
 const REGISTR_SCREEN = 1;
 const PRESENT_SCREEN = 2;
 const DEV_SCREEN = 3

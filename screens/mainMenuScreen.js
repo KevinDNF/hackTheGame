@@ -3,7 +3,7 @@
 /**
  * Screen which has a big button that says "PLAY GAME"
  */
-class PlayScreen {
+class MainMenuScreen {
     constructor(){
         this.playButtonRect = {
            x: GAME_WIDTH / 2 - 100,
@@ -14,6 +14,7 @@ class PlayScreen {
     }
 
     init(switchScreen) {
+        const image = document.getElementById("logo");
         //Binding the click event on the canvas
         canvas.addEventListener('click', function(evt) {
             console.log("button clicked play screen");
@@ -30,6 +31,8 @@ class PlayScreen {
     }
 
     redraw() {
-        drawPlayButton(this.playButtonRect.x, this.playButtonRect.y, this.playButtonRect.width, this.playButtonRect.height, '#00FFFF', '#DE3163');
+        const image = document.getElementById("logo");
+        drawImage("logo", GAME_WIDTH / 2 - image.width / 2, 10);
+        drawPlayButton(this.playButtonRect.x, this.playButtonRect.y + 200, this.playButtonRect.width, this.playButtonRect.height, '#00FFFF', '#DE3163');
     }
 }
