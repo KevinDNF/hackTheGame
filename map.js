@@ -26,7 +26,7 @@ class Map {
         if(player.holding === "coffee") {
           if(player.coffee >= 100){
             console.log("FULL EAT IT, at the bar")
-          } else{ 
+          } else{
             player.holding="nothing"
             player.coffee += 10
           }
@@ -114,18 +114,18 @@ class Map {
 
         if (player.vx > 0) {
             gridX += 1;
-        }
+        } else gridX -= 1;
         if (player.vy > 0) {
-            gridY += 2;
-        }
+            gridY += 1;
+        } else gridY -= 1;
         const tile = this.getTile(gridX, gridY);
         const tileYRIGHT = this.getTile(Math.floor(player.x / GRID_SIZE) + 1, gridY);
         const tileY = this.getTile(Math.floor(player.x / GRID_SIZE), gridY);
         const tileYLEFT = this.getTile(Math.floor(player.x / GRID_SIZE), gridY);
 
-        const tileXUP = this.getTile(gridX, Math.floor(player.y / GRID_SIZE));
+        const tileXUP = this.getTile(gridX, Math.floor(player.y / GRID_SIZE) - 1);
         const tileX = this.getTile(gridX, Math.floor(player.y / GRID_SIZE));
-        const tileXDOWN = this.getTile(gridX, Math.floor(player.y / GRID_SIZE) + 2);
+        const tileXDOWN = this.getTile(gridX, Math.floor(player.y / GRID_SIZE) + 1);
 
         if (player.vx != 0){
             if (tileXUP == "w" || tileXDOWN == "w"){
