@@ -9,6 +9,12 @@ class RegistrationScreen {
         this.switchScreen = switchScreen;
         this.player = new Player(GAME_WIDTH / 2, GAME_HEIGHT / 2);
         this.map = new Map(MAIN_MAP);
+        const ui_items =  [
+          ["Coffee",0,100],
+          ["Food",0,100],
+          ["Satisfaction",100,100]
+        ]
+        this.ui = new UI(ui_items)
     }
 
     init(switchScreen) {
@@ -78,6 +84,7 @@ class RegistrationScreen {
 
     redraw() {
         drawImage("map", 0, 0);
+        this.ui.draw()
 
         //drawPlayButton(this.playButtonRect.x, this.playButtonRect.y, this.playButtonRect.width, this.playButtonRect.height, '#00FFFF', '#DE3163');
 

@@ -70,18 +70,19 @@ function drawCircle(x, y, size){
     context.stroke();
 }
 
-function drawRect(x, y, w, h) {
+function drawRect(x, y, w, h,colour="rgba(0,0,0,1)") {
     context.beginPath();
+    context.fillStyle = colour;
     context.fillRect(x, y, w, h);
 
 }
 
-function drawText(x, y, string) {
+function drawText(x, y, string,size,colour="rgba(0,0,0,1)") {
     context.beginPath();
+    context.font = size;
+    context.fillStyle = colour;
     context.fillText(string, x, y);
 }
-
-
 
 function drawImage(name, x, y, rotation=0) {
     const image = document.getElementById(name);
