@@ -12,7 +12,7 @@ const PLAYER_SIZE = GRID_SIZE *2;
 const PLAYER_SPEED = 5;
 
 //Screen IDs
-const PLAY_SCREEN = 0;
+const MAIN_MENU_SCREEN = 0;
 const REGISTR_SCREEN = 1;
 const PRESENT_SCREEN = 2;
 const DEV_SCREEN = 3
@@ -58,8 +58,6 @@ function isInside(pos, rect){
 }
 
 function drawCircle(x, y, size){
-    context.fillStyle = 'black';
-    context.strokeStyle = 'black';
     context.beginPath();
     context.arc(x, y, size, 0, 2*Math.PI, false);
     context.fill();
