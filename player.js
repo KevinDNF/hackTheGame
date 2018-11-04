@@ -14,7 +14,16 @@ class Player {
 
         //coffee or food
         this.holding = "nothing";
+
         this.direction = 0; // degrees
+
+
+        this.animation = new Animation();
+        this.animation.addFrame("player1", 10);
+        this.animation.addFrame("player2", 10);
+
+        this.speech = new SpeechBubble(this);
+
     }
 
     /**
@@ -30,7 +39,13 @@ class Player {
      */
     draw() {
         //drawCircle(this.x, this.y, PLAYER_SIZE / 2);
-        //drawRect(this.x, this.y, PLAYER_SIZE, PLAYER_SIZE);
-        drawPlayer("player",this.x,this.y,this.direction);
+
+       // drawRect(this.x, this.y, PLAYER_SIZE, PLAYER_SIZE);
+       this.animation.draw(
+           this.x, this.y, 
+           this.vx !== 0 || this.vy !== 0);
+
+        this.speech.draw();
+
     }
 }
