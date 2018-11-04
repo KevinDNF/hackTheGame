@@ -92,6 +92,21 @@ function drawImage(name, x, y, rotation=0) {
     const radRotation = rotation*Math.PI/180;
     context.translate(x, y);
     context.rotate(radRotation);
+    context.drawImage(image, 0, 0);
+    context.restore();
+
+    //context.fillStyle = "black";
+    //context.fillRect(x,y,image.width,image.height);
+}
+
+function drawPlayerImage(name, x, y, rotation=0) {
+    const image = document.getElementById(name);
+    context.save();
+    const midpointX = image.width/2;
+    const midpointY = image.height/2;
+    const radRotation = rotation*Math.PI/180;
+    context.translate(x, y);
+    context.rotate(radRotation);
     context.drawImage(image, -midpointX, -midpointY);
     context.restore();
 
