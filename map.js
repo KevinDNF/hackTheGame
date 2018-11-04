@@ -21,8 +21,7 @@ class Map {
       switch(nextMove){
         case "c":
           //c = coffee stand
-          player.speech.speak("I am at a coffee stand.", 20);
-          console.log("COFFE STAND")
+          player.speech.speak("I am at a coffee stand.");
           if(player.holding === "coffee"){
             player.holding="nothing"
             console.log("+1 coffee")
@@ -31,7 +30,7 @@ class Map {
           break;
         case "f":
           //f = food stand
-          console.log("FOOD STAND")
+          player.speech.speak("I am at a food stand.");
           if (player.holding === "food"){
             player.holding = "nothing"
             console.log("+1 food")
@@ -40,30 +39,36 @@ class Map {
         case "r":
           //r = registration
           if (player.holding !== "nothing"){
-            console.log("My hands are busy")
+            player.speech.speak("My hands are busy");
           }else{
-            console.log("Registering people")
+            player.speech.speak("I am now registering people")
           }
           break;
         case "h":
           //h = hardbord coffee
-          console.log("HARDBOARD COFFEE")
+          player.speech.speak("I already am holding something!")
           if(player.holding === "nothing"){
             player.holding = "coffee"
+            player.speech.speak("I have collected 5 coffees");
+          } else {
+            player.speech.speak("I already am holding something!");
           }
           break;
         case "s":
           //s = food Shop
           console.log("FOOD SHOP")
           if(player.holding === "nothing"){
-            player.holding = "food"
+            player.holding = "food";
+            player.speech.speak("I have collected 5 food items");
+          } else {
+            player.speech.speak("I already am holding something!");
           }
           break;
         case "z":
           //z = food seats
           if(player.holding === "food" || player.holding === "coffee"){
-            player.holding = "nothing"
-            console.log("You just ate the food...")
+            player.holding = "nothing";
+            player.speech.speak("Nom nom nom...");
           }
           break;
       }

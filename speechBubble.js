@@ -14,12 +14,14 @@ class SpeechBubble {
         this.size = 0;
     }
 
-    speak(text, frames, size) {
-        this.text = text;
-        this.frameCount = 0;
-        this.time = frames;
-        this.state = SPEECH_STATE_SPEAKING;
-        this.size = 0;
+    speak(text) {
+        if (this.state === SPEECH_STATE_NONE) {
+            this.text = text;
+            this.frameCount = 0;
+            this.time = 50;
+            this.state = SPEECH_STATE_SPEAKING;
+            this.size = 0;
+        }
     }
 
     draw() {
@@ -46,7 +48,7 @@ class SpeechBubble {
             context.stroke();
             context.fill();
 
-            context.font = '20px serif';
+            context.font = '15px monospace';
             context.fillStyle = "black";
             drawText(left + 10, y - 50, this.text);
         }
