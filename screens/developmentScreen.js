@@ -85,8 +85,7 @@ class DevelopementScreen {
         for(const i of this.all_mobs) {
             i.update()
         }
-
-        if(this.timer >= 1000 && this.all_mobs.length < 25) {
+        if(this.timer >= 1000 && this.all_mobs.length < 10) {
             this.rand = Math.round(Math.random())
             this.x_pos = this.mob_spawn_positions[this.rand][0];
             this.y_pos = this.mob_spawn_positions[this.rand][1];    
@@ -96,6 +95,10 @@ class DevelopementScreen {
             this.all_mobs.push(this.mob);
             this.timer = 0;
         }
+        if(this.all_mobs.length > 10) {
+            this.all_mobs.shift()
+        }
+
         this.timer +=1
     }
 

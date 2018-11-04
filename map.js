@@ -55,6 +55,7 @@ class Map {
             this.register = current_registering[0];
             this.register.register_mob()
             current_registering.shift()
+            queue_count -=1;
           } else {
 
           }
