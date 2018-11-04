@@ -12,39 +12,45 @@ class RegistrationScreen {
     }
 
     init(switchScreen) {
-        window.addEventListener('keydown', function(event) {
-            if (event.key == "w") {
+        let map = {}; // You could also use an array
+        let onkeydown = function(e){
+            map[e.keyCode] = e.type == 'keydown';
+            console.log("key pressed: " + e.keyCode);
+            // Up and down
+            if (map[W_KEY]) {
                 this.player.vy = -PLAYER_SPEED;
                 this.player.direction = 270;
-            }
-            if (event.key == "a") {
-                this.player.vx = -PLAYER_SPEED;
-                this.player.direction = 180;
-            }
-            if (event.key == "s") {
+            } else if (map[S_KEY]) {
                 this.player.vy = PLAYER_SPEED;
                 this.player.direction = 90;
-            }
-            if (event.key == "d") {
+            } else this.player.vy = 0;
+            // Right and left
+            if (map[A_KEY]) {
+                this.player.vx = -PLAYER_SPEED;
+                this.player.direction = 180;
+            } else if (map[D_KEY]) {
                 this.player.vx = PLAYER_SPEED;
                 this.player.direction = 0;
+            } else this.player.vx = 0;
+            // Rotations
+            if (map[W_KEY] && map[D_KEY]) {
+                this.player.direction = 315;
             }
-        }.bind(this));
+            if (map[S_KEY] && map[D_KEY]) {
+                this.player.direction = 45;
+            }
+            if (map[A_KEY] && map[S_KEY]) {
+                this.player.direction = 135;
+            }
+            if (map[W_KEY] && map[A_KEY]) {
+                this.player.direction = 225;
+            }
+        }.bind(this);
+        let onkeyup = onkeydown;
 
-        window.addEventListener('keyup', function(event) {
-            if (event.key == "w") {
-                this.player.vy = 0;
-            }
-            if (event.key == "a") {
-                this.player.vx = 0;
-            }
-            if (event.key == "s") {
-                this.player.vy = 0;
-            }
-            if (event.key == "d") {
-                this.player.vx = 0;
-            }
-        }.bind(this));
+        window.addEventListener('keydown', onkeydown);
+
+        window.addEventListener('keyup', onkeyup);
 /*
         window.addEventListener("click", function(event) {
             const mp = getMousePos(event);

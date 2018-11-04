@@ -17,6 +17,12 @@ const REGISTR_SCREEN = 1;
 const PRESENT_SCREEN = 2;
 const DEV_SCREEN = 3
 
+//Key codes
+const W_KEY = 87;
+const A_KEY = 65;
+const S_KEY = 83;
+const D_KEY = 68;
+
 /**
  * ============== CANVAS ==============
  */
