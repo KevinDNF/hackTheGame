@@ -5,11 +5,12 @@
  */
 class PlayScreen {
     constructor(){
-        this.playButtonRect = {
+        this.playButton = {
            x: GAME_WIDTH / 2 - 100,
            y: GAME_HEIGHT / 2 - 50,
            width: 200,
-           height: 100
+           height: 100,
+           color: '#DE3163'
         };
     }
 
@@ -20,7 +21,7 @@ class PlayScreen {
             const mousePos = getMousePos(evt);
 
             if (isInside(mousePos, this.playButton)) {
-                this.playButton.fillStyle = '#aE1133';
+                this.playButton.color = '#aE1133';
             }
 
 
@@ -31,7 +32,7 @@ class PlayScreen {
             const mousePos = getMousePos(evt);
 
             if (isInside(mousePos, this.playButton)) {
-                this.playButton.fillStyle = '#DE3163';
+                this.playButton.color = '#DE3163';
             }
 
 
@@ -42,7 +43,7 @@ class PlayScreen {
             console.log("button clicked play screen");
             const mousePos = getMousePos(evt);
 
-            if (isInside(mousePos, this.playButtonRect)) {
+            if (isInside(mousePos, this.playButton)) {
                 switchScreen(REGISTR_SCREEN);
             }
         }.bind(this));
@@ -53,6 +54,6 @@ class PlayScreen {
     }
 
     redraw() {
-        drawPlayButton(this.playButtonRect.x, this.playButtonRect.y, this.playButtonRect.width, this.playButtonRect.height, '#00FFFF', '#DE3163');
+        drawPlayButton(this.playButton.x, this.playButton.y, this.playButton.width, this.playButton.height, this.playButton.color);
     }
 }

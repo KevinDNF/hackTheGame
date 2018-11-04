@@ -69,7 +69,7 @@ class RegistrationScreen {
     }
 
     update() {
-        this.map.collisions(this.player); 
+        this.map.collisions(this.player);
         this.player.update();
     }
 
