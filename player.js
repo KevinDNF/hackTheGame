@@ -21,6 +21,8 @@ class Player {
         //goal 100
         this.coffee = 0;
 
+        this.won = false;
+
         this.direction = 0; // degrees
 
         this.player_nothing = new Animation();
@@ -39,6 +41,7 @@ class Player {
 
         this.speech = new SpeechBubble(this);
 
+        this.p = []
     }
 
     /**
@@ -47,17 +50,16 @@ class Player {
     update() {
         this.x += this.vx;
         this.y += this.vy;
-        // console.log(this.x/20, this.y/20)
+        if (this.won) {
+            
+                this.p.push(new Particle(this.x, this.y));
+        }
     }
 
     /**
      * Render the player
      */
     draw() {
-        //drawCircle(this.x, this.y, PLAYER_SIZE / 2);
-
-       // drawRect(this.x, this.y, PLAYER_SIZE, PLAYER_SIZE);
-
        switch (this.holding){
          case "nothing":
           this.animation = this.player_nothing;
@@ -77,5 +79,13 @@ class Player {
 
         this.speech.draw();
 
+        if (this.won) {
+            context.fillStyle = "white";
+            drawText(200, GAME_HEIGHT / 2 - 50, "YOU HAVE WON", "200px monospace", "white");
+            context.fillStyle = "hotpink";
+            for (const p of this.p) {
+                p.draw();
+            }
+        }
     }
 }
