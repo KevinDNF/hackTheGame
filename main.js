@@ -31,8 +31,8 @@ function switchScreen(switchTo) {
         screen = to;
     }
 
-    if (switchTo === PLAY_SCREEN) {
-        destroyAndSwitch(new PlayScreen());
+    if (switchTo === MAIN_MENU_SCREEN) {
+        destroyAndSwitch(new MainMenuScreen());
     }
     else if (switchTo === REGISTR_SCREEN) {
         destroyAndSwitch(new RegistrationScreen());
@@ -53,8 +53,7 @@ function init(){
     canvas.height = GAME_HEIGHT;
 
     //Init the first screen
-    screen = new PlayScreen(switchScreen);
-    screen.init(switchScreen);
+    switchScreen(MAIN_MENU_SCREEN);
 
     //Begin the main loop
     window.requestAnimationFrame(loop);

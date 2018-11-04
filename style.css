@@ -3,7 +3,7 @@ body {
     background-color: #DE3163;
 }
 
-img {
+#img {
     display: none
 }
 
@@ -18,3 +18,4 @@ canvas {
     border-style: solid;
     border-color: black;
 }
+
