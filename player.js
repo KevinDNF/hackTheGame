@@ -14,6 +14,12 @@ class Player {
 
         //coffee or food
         this.holding = "nothing";
+        //fail if hits 0
+        this.satisfaction = 100;
+        //goal 100
+        this.food = 0;
+        //goal 100
+        this.coffee = 0;
 
         this.direction = 0; // degrees
 
