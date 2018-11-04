@@ -72,15 +72,15 @@ class DevelopementScreen {
     }
 
     update() {
+        this.map.collisions(this.player);
+        this.player.update();
+
         if (youLost()){
             alert("You lost");
             switchScreen(MAIN_MENU_SCREEN);
         } else if (youWon()){
-            alert("You won");
-            switchScreen(MAIN_MENU_SCREEN);
+            this.player.won = true;
         }
-        this.map.collisions(this.player);
-        this.player.update();
 
         for(const i of this.all_mobs) {
             i.update()
