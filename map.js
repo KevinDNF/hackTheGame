@@ -17,10 +17,14 @@ class Map {
         return this.layout[y][x]
     }
 
-    specialTiles(nextMove,player) {
+    specialTiles(nextMove, player) {
       switch(nextMove){
         case "c":
           //c = coffee stand
+<<<<<<< HEAD
+=======
+          player.speech.speak("I am at a coffee stand.");
+>>>>>>> 606c71d0564401ef2cd3f7a79fe2a2c4f9a30355
           if(player.holding === "coffee"){
             if(player.coffee >= 100){
               console.log("FULL EAT IT, at the bar")
@@ -32,6 +36,10 @@ class Map {
           break;
         case "f":
           //f = food stand
+<<<<<<< HEAD
+=======
+          player.speech.speak("I am at a food stand.");
+>>>>>>> 606c71d0564401ef2cd3f7a79fe2a2c4f9a30355
           if (player.holding === "food"){
             if(player.food >= 100){
               console.log("FULL, EAT IT")
@@ -44,28 +52,39 @@ class Map {
         case "r":
           //r = registration
           if (player.holding !== "nothing"){
-            console.log("My hands are busy")
+            player.speech.speak("My hands are busy");
           }else{
-            console.log("Registering people")
+            player.speech.speak("I am now registering people")
           }
           break;
         case "h":
+<<<<<<< HEAD
           //h = harbord coffee
+=======
+          //h = hardbord coffee
+          player.speech.speak("I already am holding something!")
+>>>>>>> 606c71d0564401ef2cd3f7a79fe2a2c4f9a30355
           if(player.holding === "nothing"){
             player.holding = "coffee"
+            player.speech.speak("I have collected 5 coffees");
+          } else {
+            player.speech.speak("I already am holding something!");
           }
           break;
         case "s":
           //s = food Shop
           if(player.holding === "nothing"){
-            player.holding = "food"
+            player.holding = "food";
+            player.speech.speak("I have collected 5 food items");
+          } else {
+            player.speech.speak("I already am holding something!");
           }
           break;
         case "z":
           //z = food seats
           if(player.holding === "food" || player.holding === "coffee"){
-            player.holding = "nothing"
-            console.log("You just ate the food...")
+            player.holding = "nothing";
+            player.speech.speak("Nom nom nom...");
           }
           break;
       }
