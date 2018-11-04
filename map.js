@@ -75,7 +75,7 @@ class Map {
     }
 
     /**
-     * Handles collision detection and response between the tile map 
+     * Handles collision detection and response between the tile map
      * and the player
      * @param {Player} player The player
      */
