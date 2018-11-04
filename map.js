@@ -52,7 +52,6 @@ class Map {
           }else{
 
             if(current_registering.length != 0) {
-              console.log("current register count",current_registering)
               this.register = current_registering[0];
               this.register.register_mob()
               current_registering.shift()

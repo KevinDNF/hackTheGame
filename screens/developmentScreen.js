@@ -28,7 +28,7 @@ class DevelopementScreen {
         let map = {}; // You could also use an array
         let onkeydown = function(e){
             map[e.keyCode] = e.type == 'keydown';
-            console.log("key pressed: " + e.keyCode);
+            // console.log("key pressed: " + e.keyCode);
             // Up and down
             if (map[W_KEY]) {
                 this.player.vy = -PLAYER_SPEED;

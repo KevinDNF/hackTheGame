@@ -12,7 +12,7 @@ class mob {
         this.size = PLAYER_SIZE;
         this.target = null;
         this.task = null; // Following possibilites are: queue, drink, food, idle
-        this.queue_positions = ["16,30","18,30","20,30","20,30","22,30"];
+        this.queue_positions = ["18,31","20,31","22,31","24,31","26,31"];
         this.route = null;
         this.move_every = Math.floor(Math.random() * (20 - 10 + 1)) + 10;
         this.idle_amount = Math.floor(Math.random() * (200 - 10 + 1)) + 10;
@@ -42,10 +42,11 @@ class mob {
         } else if (this.task == "queue") {
             // Get next avalible position in the queue and navigate to there
             this.timer+=1;
-            if(this.timer == 10000) {
+            if(this.timer == 1000) {
                 player.satisfaction -=1;
                 this.timer = 0;
             }
+            // console.log(this.timer)
             
         } else if (this.task == "drink") {
             //Navigate to drinks and remove 1 from global avalible_drinks
@@ -88,7 +89,8 @@ class mob {
      */
     draw() {
         // drawCircle(this.x, this.y, PLAYER_SIZE / 2);
-        drawRect(this.x, this.y, PLAYER_SIZE, PLAYER_SIZE);
+        // drawRect(this.x, this.y, PLAYER_SIZE, PLAYER_SIZE);
+        drawPlayerImage("mob",this.x,this.y)
     }
 
     work_out_path(end_x_y) {
