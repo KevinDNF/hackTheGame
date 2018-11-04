@@ -47,6 +47,6 @@ The main menu of the game
 The stage where the competition is being introduced to the competitors. Here the player must deliver coffee to the people at the presentation.
 
 
-#### developementScreen: 
+#### developementScreen:
 
 The stage where people are programming their hacks. Here the player must register players, serve food and drink, and order food and drink at local stores.
