@@ -43,7 +43,7 @@ class mob {
             // Get next avalible position in the queue and navigate to there
             this.timer+=1;
             if(this.timer == 1000) {
-                player.satisfaction -=1;
+                player.satisfaction -=2;
                 this.timer = 0;
             }
             // console.log(this.timer)
