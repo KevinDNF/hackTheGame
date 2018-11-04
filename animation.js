@@ -19,7 +19,7 @@ class Animation {
             this.currentFrame = 0;
         }
         const frame = this.frames[this.currentFrame];
-        drawImage(frame.name, x, y, rotation)
+        drawPlayerImage(frame.name, x, y, rotation)
         if (changeFrames) {
             this.frameCounter += 1;
             if (this.frameCounter >= frame.delay) {
