@@ -23,10 +23,19 @@ class Player {
 
         this.direction = 0; // degrees
 
+        this.player_nothing = new Animation();
+        this.player_nothing.addFrame("player1", 10);
+        this.player_nothing.addFrame("player2", 10);
 
-        this.animation = new Animation();
-        this.animation.addFrame("player1", 10);
-        this.animation.addFrame("player2", 10);
+        this.animation = this.player_nothing;
+
+        this.player_coffee = new Animation();
+        this.player_coffee.addFrame("player-coffee-1", 10);
+        this.player_coffee.addFrame("player-coffee-2", 10);
+
+        this.player_food = new Animation();
+        this.player_food.addFrame("player-donut-1", 10);
+        this.player_food.addFrame("player-donut-2", 10);
 
         this.speech = new SpeechBubble(this);
 
@@ -48,6 +57,19 @@ class Player {
         //drawCircle(this.x, this.y, PLAYER_SIZE / 2);
 
        // drawRect(this.x, this.y, PLAYER_SIZE, PLAYER_SIZE);
+
+       switch (this.holding){
+         case "nothing":
+          this.animation = this.player_nothing;
+          break;
+         case "coffee":
+           this.animation = this.player_coffee;
+           break;
+         case "food":
+           this.animation = this.player_food;
+           break;
+       }
+
        this.animation.draw(
            this.x, this.y, 
            this.vx !== 0 || this.vy !== 0,
