@@ -18,6 +18,12 @@ const PRESENT_SCREEN = 2;
 const DEV_SCREEN = 3
 
 /**
+ * ============== Globals =============
+ */
+let queue_count = 0;
+let current_registering = new Array();
+
+/**
  * ============== CANVAS ==============
  */
 let canvas = document.getElementById("canvas");

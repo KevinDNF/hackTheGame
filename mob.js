@@ -12,43 +12,94 @@ class mob {
         this.size = PLAYER_SIZE;
         this.target = null;
         this.task = null; // Following possibilites are: queue, drink, food, idle
-        this.queue_positions = ["8,15","9,15","10,15","11,15","12,15"];
+        this.queue_positions = ["16,30","18,30","20,30","20,30","22,30"];
+        this.route = null;
+        this.move_every = Math.floor(Math.random() * (20 - 10 + 1)) + 10;
+        this.counter = 0;
+        this.is_signed_up = false;
+        this.idle_area_x = [8,15];
+        this.idle_area_y = [15,21];
+        this.timer;
     }
 
     /**
      * Update player based on current velocity
      */
     update() {
-        if (this.task == "queue") {
-            // Get next avalible position in the queue and navigate to there
+        // console.log("This AI's current task is ", this.task)
+        // console.log("I am currently ", this.is_signed_up)
+        if(this.task == null) {
+            if(this.is_signed_up) {
+                this.task = "idle";
+                console.log("I am signed up")
+                this.pos = [Math.floor(Math.random() * (35 - 10 + 1)) + 10, + Math.floor(Math.random() * (21 - 15 + 1)) + 15].toString();
+                this.route = this.work_out_path(this.pos);
 
+            } else {
+                this.task = "queue";
+                this.route = this.work_out_path(this.queue_positions[queue_count])
+                queue_count +=1;
+                console.log(current_registering)
+            }   
+        } else if (this.task == "queue") {
+            // Get next avalible position in the queue and navigate to there
+            this.timer+=1;
+            
         } else if (this.task == "drink") {
             //Navigate to drinks and remove 1 from global avalible_drinks
 
         } else if (this.task == "food") {
             // navigate to food table and take one from the table
 
-        } else {
+        } else if(this.task == "idle") {
             // Program
-            this.x  = 985;
-            this.y = 600;
-            console.log("Ai pos=",this.x, this.y)
-            this.work_out_path();
+            
+        } 
+
+        console.log(this.route.length,this.counter == this.move_every)
+
+        if(this.route.length != 0 && this.counter == this.move_every) {
+            //walk to target
+            console.log("moving")
+            let move_to = this.route[0];
+            this.x = move_to.y*20;
+            this.y = move_to.x*20;
+            this.route.shift()
+
+            this.counter = 0;
+        } else {
+            this.task == null;
         }
+        if(this.counter == this.move_every) {
+            this.counter = 0
+        }
+        this.counter +=1;
+        
+        // console.log(current_registering)
     }
 
     /**
-     * Render the player
+     * Render the mob
      */
     draw() {
-        drawCircle(this.x, this.y, PLAYER_SIZE / 2);
-        // drawRect(this.x, this.y, PLAYER_SIZE, PLAYER_SIZE);
+        // drawCircle(this.x, this.y, PLAYER_SIZE / 2);
+        drawRect(this.x, this.y, PLAYER_SIZE, PLAYER_SIZE);
     }
 
-    work_out_path() {
-        var start = ai_map.grid[25][0];
-        var end = ai_map.grid[25][5];
-        var result = astar.search(ai_map,start,end);
+    work_out_path(end_x_y) {
+        let end_y = end_x_y.split(",")[0]
+        let end_x = end_x_y.split(",")[1]
+
+        let start = ai_map.grid[this.y/20][this.x/20];
+        let end = ai_map.grid[end_x][end_y];
+        let result = astar.search(ai_map,start,end);
+
+
         return result;
+    }
+    register_mob() {
+        // console.log("Signed up")
+        this.is_signed_up = true;
+        this.task = null;
     }
 }

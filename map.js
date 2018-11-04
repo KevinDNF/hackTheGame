@@ -6,6 +6,7 @@
 class Map {
     constructor(layout) {
         this.layout = layout;
+        this.register = null;
     }
 
     /**
@@ -38,10 +39,19 @@ class Map {
           break;
         case "r":
           //r = registration
+
           if (player.holding !== "nothing"){
             console.log("My hands are busy")
           }else{
-            console.log("Registering people")
+
+            if(current_registering.length != 0) {
+              console.log("current register count",current_registering)
+              this.register = current_registering[0];
+              this.register.register_mob()
+              current_registering.shift()
+            } else {
+
+            }
           }
           break;
         case "h":

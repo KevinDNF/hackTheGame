@@ -9,6 +9,11 @@ class RegistrationScreen {
         this.switchScreen = switchScreen;
         this.player = new Player(GAME_WIDTH / 2, GAME_HEIGHT / 2);
         this.map = new Map(MAIN_MAP);
+        this.mob = new mob(GAME_WIDTH/2, GAME_HEIGHT/2)
+        this.mob2 = new mob(GAME_WIDTH/2, GAME_HEIGHT/2)
+        current_registering.push(this.mob)
+        current_registering.push(this.mob2)
+
     }
 
     init(switchScreen) {
@@ -64,14 +69,18 @@ class RegistrationScreen {
     update() {
         this.map.collisions(this.player);
         this.player.update();
+        this.mob.update();
+        this.mob2.update();
+
     }
 
     redraw() {
         drawImage("map", 0, 0);
 
         //drawPlayButton(this.playButtonRect.x, this.playButtonRect.y, this.playButtonRect.width, this.playButtonRect.height, '#00FFFF', '#DE3163');
-
+        this.mob.draw();
+        this.mob2.draw();
         this.player.draw();
-        // drawGridOverlay();
+        drawGridOverlay();
     }
 }
