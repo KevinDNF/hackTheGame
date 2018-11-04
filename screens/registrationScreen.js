@@ -15,15 +15,19 @@ class RegistrationScreen {
         window.addEventListener('keydown', function(event) {
             if (event.key == "w") {
                 this.player.vy = -PLAYER_SPEED;
+                this.player.direction = 270;
             }
             if (event.key == "a") {
                 this.player.vx = -PLAYER_SPEED;
+                this.player.direction = 180;
             }
             if (event.key == "s") {
                 this.player.vy = PLAYER_SPEED;
+                this.player.direction = 90;
             }
             if (event.key == "d") {
                 this.player.vx = PLAYER_SPEED;
+                this.player.direction = 0;
             }
         }.bind(this));
 
