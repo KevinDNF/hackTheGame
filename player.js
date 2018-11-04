@@ -21,6 +21,8 @@ class Player {
         //goal 100
         this.coffee = 0;
 
+        this.won = false;
+
         this.direction = 0; // degrees
 
 
@@ -30,6 +32,7 @@ class Player {
 
         this.speech = new SpeechBubble(this);
 
+        this.p = []
     }
 
     /**
@@ -38,6 +41,12 @@ class Player {
     update() {
         this.x += this.vx;
         this.y += this.vy;
+        if (this.won) {
+            if (this.vx != 0 || this.vy != 0) {
+                this.p.push(new Particle(this.x, this.y));
+                this.p.push(new Particle(this.x, this.y));
+            }
+        }
         // console.log(this.x/20, this.y/20)
     }
 
@@ -54,6 +63,13 @@ class Player {
            this.direction);
 
         this.speech.draw();
+
+        if (this.won) {
+            context.fillStyle = "red";
+            for (const p of this.p) {
+                p.draw();
+            }
+        }
 
     }
 }
