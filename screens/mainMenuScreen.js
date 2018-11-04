@@ -68,7 +68,6 @@ class MainMenuScreen {
         context.fillStyle = "#FF1493";
         context.strokeStyle = "black";
         for (const particle of this.particles) {
-            particle.update();
             particle.draw();
         }
 

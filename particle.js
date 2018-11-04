@@ -14,23 +14,13 @@ class Particle {
         this.vertices.push({x: size,    y: 0});
         this.vertices.push({x: size,    y: size});
         this.vertices.push({x: 0,       y: size});
-/*
-        for (const v of this.vertices) {
-            v.x = v.x * Math.cos(rotation) - v.y * Math.sin(rotation);
-            v.y = v.x * Math.sin(rotation) + v.y * Math.cos(rotation);
-        }
-*/
     }
 
-    update() {
+    draw() {
         this.x += this.vx;
         this.y += this.vy;
 
         this.vy += 1;
-    }
-
-    draw() {
-        //drawCircle(this.x, this.y, 10);
 
         context.beginPath();
         context.moveTo(this.vertices[0].x + this.x, this.vertices[0].y + this.y);
