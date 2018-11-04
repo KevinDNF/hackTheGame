@@ -14,6 +14,10 @@ class Player {
 
         //coffee or food
         this.holding = "nothing";
+
+        this.animation = new Animation();
+        this.animation.addFrame("player1", 10);
+        this.animation.addFrame("player2", 10);
     }
 
     /**
@@ -30,6 +34,9 @@ class Player {
      */
     draw() {
         //drawCircle(this.x, this.y, PLAYER_SIZE / 2);
-        drawRect(this.x, this.y, PLAYER_SIZE, PLAYER_SIZE);
+       // drawRect(this.x, this.y, PLAYER_SIZE, PLAYER_SIZE);
+       this.animation.draw(
+           this.x, this.y, 
+           this.vx !== 0 || this.vy !== 0);
     }
 }
