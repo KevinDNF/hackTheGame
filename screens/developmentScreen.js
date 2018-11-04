@@ -93,6 +93,11 @@ class DevelopementScreen {
     }
 
     redraw() {
+        let ui_items = [
+          ["Coffee",this.player.coffee,100],
+          ["Food",this.player.food,100],
+          ["Satisfaction",this.player.satisfaction,100]
+        ]
         drawImage("map", 0, 0);
         this.player.draw();
         drawGridOverlay();
