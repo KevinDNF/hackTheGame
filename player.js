@@ -1,6 +1,6 @@
 class Player {
     /**
-     * Constructs the player and inits their position   
+     * Constructs the player and inits their position
      * @param {Nunber} x X position for the player to start at
      * @param {Number} y Y position for the player to start at
      */
@@ -14,7 +14,7 @@ class Player {
 
         //coffee or food
         this.holding = "nothing";
-        this.direction = 0;
+        this.direction = 0; // degrees
     }
 
     /**
@@ -31,6 +31,6 @@ class Player {
     draw() {
         //drawCircle(this.x, this.y, PLAYER_SIZE / 2);
         //drawRect(this.x, this.y, PLAYER_SIZE, PLAYER_SIZE);
-        drawImage("player",this.x,this.y,this.direction)
+        drawPlayer("player",this.x,this.y,this.direction);
     }
 }

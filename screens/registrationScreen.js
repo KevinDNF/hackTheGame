@@ -76,6 +76,6 @@ class RegistrationScreen {
         //drawPlayButton(this.playButtonRect.x, this.playButtonRect.y, this.playButtonRect.width, this.playButtonRect.height, '#00FFFF', '#DE3163');
 
         this.player.draw();
-        //drawGridOverlay();
+        drawGridOverlay();
     }
 }
