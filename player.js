@@ -64,12 +64,15 @@ class Player {
 
         this.speech.draw();
 
-        if (this.won) {
+       // if (this.won) {
+            context.fillStyle = "white";
+            context.font = "200px monospace"
+            drawText(200, GAME_HEIGHT / 2 - 50, "YOU HAVE WON");
             context.fillStyle = "red";
             for (const p of this.p) {
                 p.draw();
             }
-        }
+      //  }
 
     }
 }

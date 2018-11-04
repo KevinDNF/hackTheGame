@@ -151,6 +151,6 @@ function youLost(){
 }
 
 function youWon(){
-    if (player.food + player.coffee >= 1) return true;
+    if (player.food + player.coffee >= 200) return true;
     return false;
 }
