@@ -86,6 +86,9 @@ class Map {
      * @param {Player} player The player
      */
     collisions(player) {
+        const image = document.getElementById("player");
+        const playerWidth = image.width;
+        const playerHeight = image.height;
         const playerNextX = player.x + player.vx;
         const playerNextY = player.y + player.vy;
         let gridX = Math.floor(playerNextX / GRID_SIZE);
@@ -95,31 +98,30 @@ class Map {
             gridX += 1;
         }
         if (player.vy > 0) {
-            gridY += 1;
+            gridY += 2;
         }
         const tile = this.getTile(gridX, gridY);
+        const tileYRIGHT = this.getTile(Math.floor(player.x / GRID_SIZE) + 1, gridY);
         const tileY = this.getTile(Math.floor(player.x / GRID_SIZE), gridY);
+        const tileYLEFT = this.getTile(Math.floor(player.x / GRID_SIZE), gridY);
+
+        const tileXUP = this.getTile(gridX, Math.floor(player.y / GRID_SIZE));
         const tileX = this.getTile(gridX, Math.floor(player.y / GRID_SIZE));
+        const tileXDOWN = this.getTile(gridX, Math.floor(player.y / GRID_SIZE) + 2);
 
         if (player.vx != 0){
-          switch(tileX){
-            case "w":
-              player.x -= player.vx;
-              break;
-            default:
-              this.specialTiles(tileX,player)
-              break;
-         }
+            if (tileXUP == "w" || tileXDOWN == "w"){
+                player.x -= player.vx;
+            } else {
+                this.specialTiles(tileX,player);
+            }
         }
         if (player.vy != 0){
-          switch(tileY){
-            case "w":
-              player.y -= player.vy;
-              break;
-            default:
-              this.specialTiles(tileX,player)
-              break;
-          }
+            if (tileYRIGHT == "w" || tileYLEFT == "w"){
+                player.y -= player.vy;
+            } else {
+                this.specialTiles(tileY,player);
+            }
         }
     }
 }
