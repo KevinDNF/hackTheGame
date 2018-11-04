@@ -73,7 +73,6 @@ class MainMenuScreen {
         //Binding the click event on the canvas
         canvas.addEventListener('click', function(evt) {
             if (this.state === "none") {
-                console.log("button clicked play screen");
                 const mousePos = getMousePos(evt);
 
                 if (isInside(mousePos, this.playButton)) {
