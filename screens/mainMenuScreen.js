@@ -5,34 +5,54 @@
  */
 class MainMenuScreen {
     constructor(){
-        this.playButtonRect = {
-           x: GAME_WIDTH / 2 - 100,
-           y: GAME_HEIGHT / 2 - 50,
-           width: 200,
-           height: 100
+        const image = document.getElementById("logo");
+
+        const x = GAME_WIDTH / 2 - image.width / 2
+        const y = GAME_HEIGHT / 2 - image.height / 2;
+
+        this.state = "none";
+
+        this.playButton = {
+           x: x,
+           y: y,
+           width: image.width,
+           height: image.height,
+           blur: 500
         };
     }
 
     init(switchScreen) {
+        this.switchScreen = switchScreen;
         const image = document.getElementById("logo");
         //Binding the click event on the canvas
         canvas.addEventListener('click', function(evt) {
             console.log("button clicked play screen");
             const mousePos = getMousePos(evt);
 
-            if (isInside(mousePos, this.playButtonRect)) {
-                switchScreen(DEV_SCREEN);
+            if (isInside(mousePos, this.playButton)) {
+                //switchScreen(DEV_SCREEN);
+                this.state = "fade";
             }
         }.bind(this));
     }
 
     update() {
-
+        if (this.state === "fade") {
+            this.playButton.blur -= 10;
+            if (this.playButton.blur < 20) {
+                switchScreen(DEV_SCREEN);
+            }
+        }
     }
 
     redraw() {
-        const image = document.getElementById("logo");
-        drawImage("logo", GAME_WIDTH / 2 - image.width / 2, 10);
-        drawPlayButton(this.playButtonRect.x, this.playButtonRect.y + 200, this.playButtonRect.width, this.playButtonRect.height, '#00FFFF', '#DE3163');
+        context.shadowBlur = this.playButton.blur;
+        context.shadowColor = "#FF69B4";
+        //console.log(this.playButton.blur);
+        drawImage(
+            "logo", 
+            this.playButton.x, 
+            this.playButton.y
+        );
     }
 }
