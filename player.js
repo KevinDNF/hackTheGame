@@ -1,6 +1,6 @@
 class Player {
     /**
-     * Constructs the player and inits their position   
+     * Constructs the player and inits their position
      * @param {Nunber} x X position for the player to start at
      * @param {Number} y Y position for the player to start at
      */
@@ -14,6 +14,12 @@ class Player {
 
         //coffee or food
         this.holding = "nothing";
+        //fail if hits 0
+        this.satisfaction = 100;
+        //goal 100
+        this.food = 0;
+        //goal 100
+        this.coffee = 0;
     }
 
     /**

@@ -9,6 +9,12 @@ class DevelopementScreen {
         this.switchScreen = switchScreen;
         this.player = new Player(GAME_WIDTH / 2, GAME_HEIGHT / 2);
         this.map = new Map(MAIN_MAP);
+        this.ui_items =  [
+          ["Coffee",this.player.coffee,100],
+          ["Food",this.player.food,100],
+          ["Satisfaction",this.player.satisfaction,100]
+        ]
+        this.ui = new UI(this.ui_items)
     }
 
     init(switchScreen) {
@@ -51,6 +57,7 @@ class DevelopementScreen {
     redraw() {
         drawImage("map", 0, 0);
         this.player.draw();
+        this.ui.draw(this.ui_items);
         //drawGridOverlay();
     }
 }

@@ -21,19 +21,24 @@ class Map {
       switch(nextMove){
         case "c":
           //c = coffee stand
-          console.log("COFFE STAND")
           if(player.holding === "coffee"){
-            player.holding="nothing"
-            console.log("+1 coffee")
+            if(player.coffee >= 100){
+              console.log("FULL EAT IT, at the bar")
+            }else{
+              player.holding="nothing"
+              player.coffee += 10
+            }
           }
-          console.log(player.holding)
           break;
         case "f":
           //f = food stand
-          console.log("FOOD STAND")
           if (player.holding === "food"){
-            player.holding = "nothing"
-            console.log("+1 food")
+            if(player.food >= 100){
+              console.log("FULL, EAT IT")
+            }else{
+              player.holding = "nothing"
+              player.food += 10
+            }
           }
           break;
         case "r":
@@ -45,15 +50,13 @@ class Map {
           }
           break;
         case "h":
-          //h = hardbord coffee
-          console.log("HARDBOARD COFFEE")
+          //h = harbord coffee
           if(player.holding === "nothing"){
             player.holding = "coffee"
           }
           break;
         case "s":
           //s = food Shop
-          console.log("FOOD SHOP")
           if(player.holding === "nothing"){
             player.holding = "food"
           }
