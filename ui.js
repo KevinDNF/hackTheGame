@@ -12,6 +12,7 @@ class UI{
     }
 
     draw(options) {
+      this.options = options
       this.rect = drawRect(this.x-5,this.y-30,this.width,this.height+40,"rgba(0,0,0,0.5)");
       for (let i=0;i<this.options.length;i++){
         let item = this.options[i]
