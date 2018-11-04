@@ -110,7 +110,7 @@ class DevelopementScreen {
         ]
         drawImage("map", 0, 0);
         this.player.draw();
-        drawGridOverlay();
+        //drawGridOverlay();
         for(const i of this.all_mobs) {
             i.draw()
         }
